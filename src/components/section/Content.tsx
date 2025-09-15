@@ -7,7 +7,11 @@ import {
   BriefcaseBusiness,
   HandHeart,
   PlaneTakeoff,
-  Wand
+  Wand,
+  Hand,
+  Link,
+  Link2,
+  Link2Off
 } from 'lucide-react';
 import { ProjectFilter } from '@/types';
 import { RootContext } from '@/contexts/RootContext';
@@ -46,12 +50,41 @@ const Content = () => {
     const isEN = language === 'EN';
     return [
       {
+        id: 2,
+        title: isEN ? "Logistic Management" : "Management Logistik",
+        company: "PT Energy Logistics",
+        duration: isEN ? "Contract employee for 6 month (June - December 2025)" : "Karyawan Kontrak selama 6 bulan (Juni - Desember 2025)",
+        location: isEN ? "South Jakarta" : "Jakarta Selatan",
+        date: "Jun 2025 - Current",
+        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
+        link: "https://energy-logistics.co.id/",
+        type: "Portfolio",
+        features: isEN ? [
+          "Participate in migration from PHP 5 Native into CodeIgniter 3 with jQuery and Bootstrap",
+          "Initiate gradual migration by injecting Alpine JS and tailwindcss along with Codeigniter 3",
+          "Advising and planning future proof migration by using Next.JS, PostgreSQL, Nest.JS, including database normalization and migration from MySQL",
+          "Redesign UI to be more readable, and easy to use for user",
+          "Handling feature development, improvement, and bug fixing",
+        ] : [
+          "Berpartisipasi dalam migrasi dari PHP 5 Native ke CodeIgniter 3 dengan jQuery dan Bootstrap",
+          "Menginisiasi migrasi bertahap dengan menggunakan Alpine JS and tailwindcss dalam Codeigniter 3",
+          "Menyarankan dan merencanakan migrasi future proof dengan menggunakan Next.JS, PostgreSQL, Nest.JS, termasuk normalisasi database dan migrasi dari MySQL",
+          "Mendesain ulang UI agar lebih mudah dibaca dan digunakan oleh pengguna",
+          "Menghandle pengembangan dan peningkatan performa fitur, dan memperbaikin bug",
+        ],
+        techStack: ["ci","jquery","mysql", "js", "bootstrap", "tailwind", "alpine", "gemini", "github"],
+        tracking: "shipment-tracking.png",
+        images: ["enlog.png", "enlog2.png"],
+        roles: [Role.FrontendWebDeveloper],
+      },
+      {
         id: 1,
         title: "AI Chatbot (CXM)",
         company: "AiChat Pte Ltd (PT Aichat Teknologi Indonesia)",
         duration: isEN ? "Fulltime Employee for 3 years (2022 - 2025)" : "Karyawan Tetap selama 3 tahun (2022 - 2025)",
         type: "Portfolio",
         badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
+        link: "https://www.aichat.com/",
         remote: true,
         location: "Remote",
         date: "Jan 2022 - Apr 2025",
@@ -68,36 +101,30 @@ const Content = () => {
           "Memberikan penjelasan teknis kepada Account Manager, yang menghasilkan adopsi/kepuasan fitur klien yang sukses",
           "Melacak, Memantau, dan Memperbaiki masalah pada aplikasi mobile, CMS, dan widget web"
         ],
-        techStack: ["next", "react", "vite", "expo", "js", "ts", "zustand", "formik", "socketio", "tailwind", "laravel", "bootstrap"],
+        techStack: ["next", "react", "vite", "expo", "js", "ts", "zustand", "formik", "react-hook-form", "socketio", "tailwind", "laravel", "bootstrap", "github", "gitlab", "slack", "clickup", "ryver"],
         images: ["aichat.png", "aichat2.png"],
         roles: [Role.FrontendWebDeveloper, Role.MobileDeveloper],
       },
       {
-        id: 2,
-        title: isEN ? "Logistic Management" : "Management Logistik",
-        company: "PT Energy Logistics",
-        duration: isEN ? "Contract employee for 6 month (June - December 2025)" : "Karyawan Kontrak selama 6 bulan (Juni - Desember 2025)",
-        location: isEN ? "South Jakarta" : "Jakarta Selatan",
-        date: "Jun 2025 - Current",
-        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
+        id: 7,
+        title: "AI Job Analysis",
+        company: "Personaize",
         type: "Portfolio",
+        location: "Remote",
+        badges: [isEN ? "Official Link" : "Tautan"],
+        link: "https://personaize.rizkiananto.com/",
+        duration: "Personal",
+        date: "May 2025 - Current",
         features: isEN ? [
-          "Participate in migration from PHP 5 Native into CodeIgniter 3 with jQuery and Bootstrap",
-          "Initiate gradual migration by injecting Alpine JS and tailwindcss along with Codeigniter 3",
-          "Advising and planning future proof migration by using Next.JS, PostgreSQL, Nest.JS, including database normalization and migration from MySQL",
-          "Redesign UI to be more readable, and easy to use for user",
-          "Handling feature development, improvement, and bug fixing",
+          "Research and analysis of the problems to genreate a solution",
+          "Designing system, architecture, and development the whole project",
         ] : [
-          "Berpartisipasi dalam migrasi dari PHP 5 Native ke CodeIgniter 3 dengan jQuery dan Bootstrap",
-          "Menginisiasi migrasi bertahap dengan menggunakan Alpine JS and tailwindcss dalam Codeigniter 3",
-          "Menyarankan dan merencanakan migrasi future proof dengan menggunakan Next.JS, PostgreSQL, Nest.JS, termasuk normalisasi database dan migrasi dari MySQL",
-          "Mendesain ulang UI agar lebih mudah dibaca dan digunakan oleh pengguna",
-          "Menghandle pengembangan dan peningkatan performa fitur, dan memperbaikin bug",
+          "Riset dan analisis masalah untuk menghasilkan solusi",
+          "Desain sistem, arsitektur, dan mengembangkan seluruh proyek"
         ],
-        techStack: ["ci","jquery","mysql", "js", "bootstrap", "tailwind", "alpine"],
-        tracking: "shipment-tracking.png",
-        images: ["enlog.png", "enlog2.png"],
-        roles: [Role.FrontendWebDeveloper],
+        techStack: ["next","ts","tailwind","qoder", "claude", "gemini", "postgres", "supabase", "github", "docker", "cloudflare", "nginx", "github"],
+        images: ["personaize.png", "personaize2.png"],
+        roles: [Role.FullstackDeveloper],
       },
       {
         id: 3,
@@ -105,7 +132,7 @@ const Content = () => {
         company: "Proedu (PT Alhasan Prima Edukasi)",
         duration: isEN ? "Fulltime Employee for 1 years (2020 - 2021)" : "Karyawan Tetap selama 1 tahun (2020 - 2021)",
         location: isEN ? "Bintaro, South Jakarta" : "Bintaro, Jakarta Selatan",
-        date: "Jan 2022 - Apr 2025",
+        date: "Aug 2020 - Dec 2021",
         type: "Portfolio",
         badges: [isEN ? "Official (Inactive)" : "Resmi (Tidak Aktif)", "Tribute"],
         features: isEN ? [
@@ -119,7 +146,7 @@ const Content = () => {
           "Coordinating with Backend to integrate REST API and UI/UX to develop new feature",
           "Participate in brainstorming with stakeholder to determine what feature or issue they want to add to platform"
         ],
-        techStack: ["react", "expo", "js", "jquery" ,"ci", "mysql"],
+        techStack: ["react", "expo", "js", "jquery" ,"ci", "mysql", "github"],
         images: ["proedu2.png", "proedu3.png"],
         roles: [Role.FrontendWebDeveloper, Role.MobileDeveloper]
       },
@@ -141,7 +168,7 @@ const Content = () => {
           "Develop new feature using Codeigniter, JQuery, AJAX, and other tech stack  in supervision by Tech Lead",
           "Contributed to design discussion for feature flows, ensuring alignment with overall project objectives",
         ],
-        techStack: ["ci", "mysql", "js", "jquery"],
+        techStack: ["ci", "mysql", "js", "jquery", "github"],
         images: ["izistay3.png", "izistay2.png"],
         roles: [Role.FullstackDeveloper]
       },
@@ -161,7 +188,7 @@ const Content = () => {
           "Develop the feature using Next JS, Prisma ORM, and PostgreSQL. then Deploy the app into VPS using Docker",
           "Communicate with client about feature, requirement, and development process ",
         ],
-        techStack: ["next", "js", "ts", "prisma", "zustand", "docker"],
+        techStack: ["next", "js", "ts", "prisma", "zustand", "docker", "github","nginx"],
         images: ["suma-next.png", "suma-next-2.png"],
         roles: [Role.FullstackDeveloper]
       },
@@ -184,7 +211,28 @@ const Content = () => {
         techStack: ["laravel", "mysql", "bootstrap"],
         images: ["suma-next.png", "suma-next-2.png"],
         roles: [Role.FullstackDeveloper],
-      }
+      },
+      {
+        id: 8,
+        title: isEN ? "Portfolio Website" : "Website Portofolio",
+        company: "[Personal Client]",
+        type: "Portfolio",
+        location: "Remote",
+        duration: "Freelance",
+        badges: [isEN ? "Official Link" : "Resmi (Tidak Aktif)"],
+        link: "https://nrharyani.com/",
+        date: "Oct 2024 - Nov 2024",
+        features: isEN ? [
+          "Develop the website using React.js",
+          "Deploy the website using Vercel Netlify"
+        ] : [
+          "Mengembangkan website menggunakan React.js",
+          "Meng-deploy website menggunakan Vercel Netlify"
+        ],
+        techStack: ["react", "github", "netlify"],
+        images: ["ani.png", "ani2.png"],
+        roles: [Role.FullstackDeveloper],
+      },
     ];
   };
 
@@ -270,11 +318,19 @@ const Content = () => {
         {/* Projects Grid - 2 columns */}
         <div className={`grid grid-cols-1 ${viewMode === 'Compact' ? 'xl:grid-cols-2' : ''} gap-6`}>
           {getProjects().map(project => (
-            <div key={project.id} className="relative bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow overflow-hidden">
+            <div key={project.id} className="relative bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
               {project.duration === "Freelance" && (
-                <div className="absolute top-1 -left-6 transform -rotate-45 origin-center">
-                  <div className="bg-gradient-to-r from-sky-400 to-teal-500 text-white px-5 shadow-md">
-                    <span className="text-[7px] font-semibold tracking-wide">FREELANCE</span>
+                <div className="absolute -top-2 -right-3 transform origin-center">
+                  <div className="bg-yellow-100 ps-3 pe-2 shadow-md rounded-tl-md rounded-r-md">
+                    <span className="text-xs text-gray-500 font-semibold tracking-wide">Freelance</span>
+                  </div>
+                </div>
+              )}
+              {project.duration === "Personal" && (
+                <div className="absolute -top-2 -right-3 transform origin-center">
+                  <div className="bg-fuchsia-100 ps-3 pe-2 shadow-md rounded-tl-md rounded-r-md flex gap-1 items-center">
+                    {/* <Hand size={12} className='text-zinc-500'/> */}
+                    <span className="text-xs text-gray-500 font-semibold tracking-wide">🍀 Personal Project</span>
                   </div>
                 </div>
               )}
@@ -292,34 +348,15 @@ const Content = () => {
                             <span>{project.location}</span>
                           </section>
                         </div>
-                        {project.badges && (
-                          <div className="flex items-center space-x-2 my-2">
-                            {project.badges.map((badge, idx) => (
-                              <span key={idx} className="inline-flex items-center space-x-1 text-xs">
-                                {badge.includes('Active') || badge.includes('Aktif') ? (
-                                  <>
-                                    <PlaneTakeoff size={14} className='text-green-800'/>
-                                    <span className="text-gray-600">{badge}</span>
-                                  </>
-                                ) : badge.includes('Inactive') || badge.includes('Tidak Aktif') ? (
-                                  <>
-                                    <span className="text-gray-400">🔗</span>
-                                    <span className="text-gray-600">{badge}</span>
-                                  </>
-                                ) : badge === 'Tribute' ? (
-                                  <>
-                                    <HandHeart size={14} className='text-pink-500'/>
-                                    <span className="text-gray-600">{badge}</span>
-                                  </>
-                                ) : badge === 'Remote' ? (
-                                  <span className="px-2 py-0.5 bg-purple-100 text-purple-700 text-xs font-medium rounded">
-                                    {badge}
-                                  </span>
-                                ) : (
-                                  <span className="text-gray-600">{badge}</span>
-                                )}
-                              </span>
-                            ))}
+                        {project.link ? (
+                          <div className='flex gap-1 items-center my-2 hover:cursor-pointer text-gray-600 hover:text-blue-600'>
+                            <Link2 className="" size={12}/>
+                            <a href={project.link} target='_blank' className="text-xs "> Visit Project</a>
+                          </div>
+                        ):(
+                          <div className='flex gap-1 items-center my-2'>
+                            <Link2Off className="text-gray-600" size={12}/>
+                            <a href={project.link} target='_blank' className="text-xs text-gray-600 line-through"> Visit Project</a>
                           </div>
                         )}
                       </div>
@@ -341,9 +378,9 @@ const Content = () => {
                       {project.roles.map((role, idx) => {
                         return (
                           <span key={idx} className={`inline-flex items-center space-x-1 text-xs px-2 py-1 rounded-sm 
-                            ${role === Role.FrontendWebDeveloper ? 'bg-sky-100 text-sky-700' : ''}
-                            ${role === Role.MobileDeveloper ? 'bg-lime-100 text-lime-700' : ''}
-                            ${role === Role.FullstackDeveloper ? 'bg-rose-100 text-rose-700' : ''}
+                            ${role === Role.FrontendWebDeveloper ? 'bg-sky-50 text-sky-700' : ''}
+                            ${role === Role.MobileDeveloper ? 'bg-lime-50 text-lime-700' : ''}
+                            ${role === Role.FullstackDeveloper ? 'bg-rose-50 text-rose-700' : ''}
                             `}
                             >
                             <span className="text-gray-600">{role}</span>

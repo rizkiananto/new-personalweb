@@ -120,3 +120,90 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Highlight.js styles for code syntax highlighting */
+.hljs {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.hljs-comment,
+.hljs-quote {
+  color: var(--muted-foreground);
+  font-style: italic;
+}
+
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-subst {
+  color: oklch(0.646 0.222 41.116);
+  font-weight: bold;
+}
+
+.hljs-number,
+.hljs-literal,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag .hljs-attr {
+  color: oklch(0.6 0.118 184.704);
+}
+
+.hljs-string,
+.hljs-doctag {
+  color: oklch(0.398 0.07 227.392);
+}
+
+.hljs-title,
+.hljs-section,
+.hljs-selector-id {
+  color: oklch(0.828 0.189 84.429);
+  font-weight: bold;
+}
+
+.hljs-type,
+.hljs-class .hljs-title {
+  color: oklch(0.769 0.188 70.08);
+  font-weight: bold;
+}
+
+.hljs-tag,
+.hljs-name,
+.hljs-attribute {
+  color: oklch(0.646 0.222 41.116);
+  font-weight: normal;
+}
+
+.hljs-regexp,
+.hljs-link {
+  color: oklch(0.398 0.07 227.392);
+}
+
+.hljs-symbol,
+.hljs-bullet {
+  color: oklch(0.6 0.118 184.704);
+}
+
+.hljs-built_in,
+.hljs-builtin-name {
+  color: oklch(0.828 0.189 84.429);
+}
+
+.hljs-meta {
+  color: var(--muted-foreground);
+}
+
+.hljs-deletion {
+  background: oklch(0.577 0.245 27.325 / 0.1);
+}
+
+.hljs-addition {
+  background: oklch(0.398 0.07 227.392 / 0.1);
+}
+
+.hljs-emphasis {
+  font-style: italic;
+}
+
+.hljs-strong {
+  font-weight: bold;
+}

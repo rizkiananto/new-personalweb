@@ -29,13 +29,17 @@ const Navbar = () => {
             {/* <button className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors">
               {t.myWorks}
             </button> */}
+            <a href="https://id.linkedin.com/in/akbarrizki" target='_blank'>
             <button className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
               <Download className="w-4 h-4" />
               <span>{t.downloadCV}</span>
             </button>
+            </a>
+            <a href="https://id.linkedin.com/in/akbarrizki" target='_blank'>
             <button className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
               {t.contactMe}
             </button>
+            </a>
           </div>
           
           <div className="flex items-center space-x-4">

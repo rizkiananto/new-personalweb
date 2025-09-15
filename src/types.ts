@@ -15,7 +15,9 @@ export interface LanguageLabel {
   roles: Role[]
   location: string
   tagline: string
+  storedTagline: string
   agentDescription: string
+  storedDescription: string
   writeDescription: string
   sampleAgentValue: string
   uploadJobPoster: string
@@ -46,6 +48,7 @@ export interface Tool {
   name: string
   icon: string
   category: string
+  section: string
   selected: boolean
   details: string
   projects: string[]
@@ -61,6 +64,30 @@ export interface ProjectFilter {
 export interface Languages {
   EN: LanguageLabel,
   ID: LanguageLabel
+}
+
+export interface JobMatchResult {
+  match_score: number;
+  analysis: string;
+  recommendations: {
+    candidate: string;
+    recruiter: string;
+  };
+  key_alignments: string[];
+  potential_concerns: string[];
+  next_steps: {
+    candidate: string;
+    recruiter: string;
+  };
+  salary_fit: string;
+  culture_fit: string;
+  growth_potential: string;
+}
+
+export interface JobMatchResponse {
+  match_result: JobMatchResult;
+  persona_id: string;
+  analysis_timestamp: string;
 }
 
 export interface IRootContext {
