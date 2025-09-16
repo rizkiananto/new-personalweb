@@ -80,7 +80,7 @@ const Content = () => {
       {
         id: 1,
         title: "AI Chatbot (CXM)",
-        company: "AiChat Pte Ltd (PT Aichat Teknologi Indonesia)",
+        company: "AiChat Pte Ltd (PT Aichat Teknologi Indonesia).",
         duration: isEN ? "Fulltime Employee for 3 years (2022 - 2025)" : "Karyawan Tetap selama 3 tahun (2022 - 2025)",
         type: "Portfolio",
         badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
