@@ -123,6 +123,13 @@ setup_environment() {
         
         read -p "Press Enter to continue after editing .env file..."
     fi
+    
+    # Verify environment setup
+    if [ -f "scripts/verify-env.sh" ]; then
+        print_status "Verifying environment configuration..."
+        chmod +x scripts/verify-env.sh
+        ./scripts/verify-env.sh
+    fi
 }
 
 # Setup Nginx configuration
@@ -197,6 +204,12 @@ deploy_application() {
     # Check if container is running
     if docker compose --profile prod ps | grep -q "Up"; then
         print_status "✅ Application started successfully"
+        
+        # Verify environment variables in production
+        if [ -f "scripts/verify-env.sh" ]; then
+            print_status "Verifying production environment..."
+            ./scripts/verify-env.sh
+        fi
     else
         print_error "❌ Application failed to start"
         docker compose --profile prod logs
