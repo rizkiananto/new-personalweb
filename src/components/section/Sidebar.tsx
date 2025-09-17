@@ -162,7 +162,9 @@ const Sidebar = () => {
         getApiUrl(API_CONFIG.endpoints.matchJob),
         postData, 
         {
-          headers: getApiHeaders()
+          headers: {
+            'Authorization': `Bearer pk_bBqr3n2B5jSu1fKwGFRwWBoE1qyrwxgx`
+          }
         },
       );
       
