@@ -72,7 +72,7 @@ export const translations:Languages = {
         img: 'product-maker.png',
       },
       {
-        title: "Frontend",
+        title: "Frontend Dev",
         icon: Gpu,
         img: 'frontend.png',
       },
