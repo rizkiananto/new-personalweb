@@ -13,7 +13,7 @@ import Content from '@/components/section/Content';
 
 const Portfolio = () => {
   const [language, setLanguage] = useState<keyof Languages>('EN');
-  const [viewMode, setViewMode] = useState('Compact');
+  const [viewMode, setViewMode] = useState('Mobile');
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
   const [projectFilters, setProjectFilters] = useState<ProjectFilter>({
     all: true,
@@ -60,17 +60,9 @@ const Portfolio = () => {
       // Combine checks
       const isMobileDevice = isMobile || (hasTouch && smallScreen && !isTablet);
       
-      console.log('Device info:', {
-        userAgent,
-        isMobile,
-        isTablet,
-        hasTouch,
-        screenWidth: window.innerWidth,
-        finalDecision: isMobileDevice ? 'Mobile' : 'Compact'
-      });
-      
       setIsMobile(isMobileDevice);
-      setViewMode(isMobileDevice ? 'Mobile' : 'Compact');
+      setViewMode('Mobile');
+      // setViewMode(isMobileDevice ? 'Mobile' : 'Compact');
     };
 
     detectDevice();

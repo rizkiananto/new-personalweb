@@ -45,12 +45,12 @@ const Navbar = () => {
           <div className="flex items-center space-x-4">
             {/* View Mode Toggle */}
             {!isMobile && (
-              <>
+              <div className='hidden'>
                 <SwitcherDemo
                   onClick={() => setViewMode(viewMode === 'Compact' ? 'Mobile' : 'Compact')}
                   value={viewMode !== 'Compact'}
                   />
-              </>
+              </div>
             )}
             {/* Language Switcher */}
             <button

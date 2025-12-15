@@ -3,6 +3,7 @@ import { LucideIcon } from "lucide-react"
 export interface Role {
   title: string
   icon: LucideIcon
+  img?: string
 }
 export interface LanguageLabel {
   myWorks: string

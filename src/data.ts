@@ -57,21 +57,24 @@ export const translations:Languages = {
     myWorks: "My Works",
     contactMe: "Contact Me",
     downloadCV: "Download CV",
-    title: "Website Developer for 7 years.",
+    title: "In development field for around 7 years, building web and mobile app",
     subtitle: "ready to transform and grow your business together",
     name: "Rizkianto Akbar",
     roles: [
       {
-        title: "Frontend",
-        icon: Gpu,
-      },
-      {
         title: "Software Engineer",
         icon: MonitorCog,
+        img: 'engineer.png',
       },
       {
         title: "Product Maker",
         icon: Lightbulb,
+        img: 'product-maker.png',
+      },
+      {
+        title: "Frontend",
+        icon: Gpu,
+        img: 'frontend.png',
       },
     ],
     location: "Indonesia (Bogor)",
