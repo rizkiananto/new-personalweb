@@ -26,11 +26,15 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
+    - name: Convert repository name to lowercase
+      id: repo_name
+      run: echo "repo_lower=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
     - name: Extract metadata for Docker
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        images: ${{ env.REGISTRY }}/${{ steps.repo_name.outputs.repo_lower }}
         tags: |
           type=ref,event=branch
           type=sha,prefix={{branch}}-
@@ -59,6 +63,10 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
+    - name: Convert repository name to lowercase
+      id: repo_name
+      run: echo "repo_lower=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
+
     - name: Deploy to VPS
       uses: appleboy/ssh-action@v1.0.3
       with:
@@ -70,11 +78,21 @@ jobs:
           # Navigate to deployment directory
           cd /opt/personalweb
           
+          # Check if .env exists
+          if [ ! -f .env ]; then
+            echo "ERROR: .env file not found!"
+            exit 1
+          fi
+          
           # Login to GitHub Container Registry
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
           
+          # Set image name (lowercase)
+          IMAGE_NAME="ghcr.io/${{ steps.repo_name.outputs.repo_lower }}:main"
+          echo "Pulling image: $IMAGE_NAME"
+          
           # Pull latest image
-          docker pull ghcr.io/${{ github.repository }}:main
+          docker pull $IMAGE_NAME
           
           # Stop and remove old container if exists
           docker stop personalweb-prod 2>/dev/null || true
@@ -86,15 +104,22 @@ jobs:
             --restart unless-stopped \
             -p 127.0.0.1:3003:3000 \
             --env-file .env \
-            ghcr.io/${{ github.repository }}:main
+            $IMAGE_NAME
           
-          # Clean up old images
-          docker image prune -af
+          # Wait a moment for container to start
+          sleep 3
+          
+          # Clean up old images (keep last 3)
+          docker image prune -af --filter "until=72h"
           
           # Show container status
-          echo "Container status:"
+          echo "=== Container Status ==="
           docker ps -f name=personalweb-prod
           
-          # Show logs (last 20 lines)
-          echo "Container logs:"
-          docker logs --tail 20 personalweb-prod
+          # Show logs (last 30 lines)
+          echo "=== Container Logs ==="
+          docker logs --tail 30 personalweb-prod
+          
+          # Test if container is responding
+          echo "=== Testing container ==="
+          curl -f http://localhost:3003 || echo "Container not responding yet, check logs above"
