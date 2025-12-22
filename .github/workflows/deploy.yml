@@ -88,7 +88,7 @@ jobs:
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
           
           # Set image name (lowercase)
-          IMAGE_NAME="ghcr.io/${{ steps.repo_name.outputs.repo_lower }}:main"
+          IMAGE_NAME="ghcr.io/${{ steps.repo_name.outputs.repo_lower }}:master"
           echo "Pulling image: $IMAGE_NAME"
           
           # Pull latest image
