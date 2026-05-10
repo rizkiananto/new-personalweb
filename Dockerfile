@@ -7,7 +7,7 @@ RUN apk add --no-cache libc6-compat
 
 # Enable corepack for pnpm
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@10 --activate
 
 WORKDIR /app
 
@@ -23,7 +23,7 @@ WORKDIR /app
 
 # Enable corepack for pnpm
 RUN corepack enable
-RUN corepack prepare pnpm@latest --activate
+RUN corepack prepare pnpm@10 --activate
 
 # Copy dependencies
 COPY --from=deps /app/node_modules ./node_modules
