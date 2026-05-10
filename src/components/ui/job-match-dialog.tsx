@@ -1,5 +1,4 @@
 "use client"
-"use client"
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -8,20 +7,19 @@ import {
   AlertTriangle, 
   TrendingUp, 
   Users, 
-  DollarSign, 
-  ArrowRight, 
   Target,
   Clock,
   Award,
   AlertCircle,
   ChevronDown,
-  ChevronRight
+  ChevronRight,
+  BarChart3,
+  Search
 } from 'lucide-react';
 import {
   Dialog,
   DialogPortal,
   DialogOverlay,
-  DialogClose,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
@@ -29,7 +27,27 @@ import * as DialogPrimitive from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Card, CardHeader, CardTitle } from '@/components/ui/card';
-import { JobMatchResponse } from '@/types';
+
+interface MatchRate {
+  Tech: string;
+  Exp: string;
+  Teamwork: string;
+  Overall: string;
+}
+
+interface MatchResult {
+  'Title': string;
+  'Plus Points': string[];
+  'Match Rate': MatchRate;
+  'Dig Deeper (Things to be considered)': string[];
+}
+
+export interface JobMatchResponse {
+    match_result: MatchResult;
+    persona_id: string;
+    job_match_id: string;
+    analysis_timestamp: string;
+}
 
 interface JobMatchDialogProps {
   isOpen: boolean;
@@ -62,29 +80,74 @@ const ErrorMessage = ({ error }: { error: string }) => (
   </div>
 );
 
-const MatchScore = ({ score }: { score: number }) => {
+const MatchScore = ({ title, overallScore }: { title: string; overallScore: string }) => {
+  const score = parseInt(overallScore);
+  
   const getScoreColor = (score: number) => {
     if (score >= 80) return 'text-green-600 bg-green-50 border-green-200';
     if (score >= 60) return 'text-orange-600 bg-orange-50 border-orange-200';
     return 'text-red-600 bg-red-50 border-red-200';
   };
 
-  const getScoreText = (score: number) => {
-    if (score >= 80) return 'Excellent Match';
-    if (score >= 60) return 'Good Match';
-    return 'Potential Match';
-  };
-
   return (
     <div className={`rounded-lg border p-4 ${getScoreColor(score)}`}>
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-2xl font-bold">{score}%</p>
-          <p className="text-sm font-medium">{getScoreText(score)}</p>
+          <p className="text-2xl font-bold">{overallScore}</p>
+          <p className="text-sm font-medium">{title}</p>
         </div>
         <Target className="h-8 w-8" />
       </div>
     </div>
+  );
+};
+
+const MatchRateBreakdown = ({ matchRate }: { matchRate: MatchRate }) => {
+  const categories = [
+    { label: 'Technical Skills', value: matchRate.Tech, icon: BarChart3 },
+    { label: 'Experience Level', value: matchRate.Exp, icon: Award },
+    { label: 'Teamwork Experience', value: matchRate.Teamwork, icon: Clock },
+  ];
+
+  const getBarColor = (value: string) => {
+    const score = parseInt(value);
+    if (score >= 80) return 'bg-green-500';
+    if (score >= 60) return 'bg-orange-500';
+    return 'bg-red-500';
+  };
+
+  return (
+    <Card className="border-gray-200 bg-white">
+      <CardHeader className="pb-3">
+        <CardTitle className="flex items-center gap-2 text-sm font-medium">
+          <BarChart3 className="h-4 w-4" />
+          Match Rate Breakdown
+        </CardTitle>
+      </CardHeader>
+      <div className="px-6 pb-6 space-y-4">
+        {categories.map((category, index) => {
+          const Icon = category.icon;
+          const score = parseInt(category.value);
+          return (
+            <div key={index} className="space-y-2">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-2">
+                  <Icon className="h-3.5 w-3.5 text-gray-500" />
+                  <span className="text-sm text-gray-700">{category.label}</span>
+                </div>
+                <span className="text-sm font-semibold text-gray-900">{category.value}</span>
+              </div>
+              <div className="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  className={`h-2 rounded-full transition-all duration-500 ${getBarColor(category.value)}`}
+                  style={{ width: `${score}%` }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </Card>
   );
 };
 
@@ -131,9 +194,9 @@ const ListSection = ({ items, variant = 'default' }: { items: string[]; variant?
       case 'success':
         return <CheckCircle className="h-3 w-3 text-green-600 mt-0.5 flex-shrink-0" />;
       case 'warning':
-        return <AlertTriangle className="h-3 w-3 text-orange-600 mt-0.5 flex-shrink-0" />;
+        return <Search className="h-3 w-3 text-orange-600 mt-0.5 flex-shrink-0" />;
       default:
-        return <ArrowRight className="h-3 w-3 text-gray-600 mt-0.5 flex-shrink-0" />;
+        return <CheckCircle className="h-3 w-3 text-gray-600 mt-0.5 flex-shrink-0" />;
     }
   };
 
@@ -185,7 +248,8 @@ const JobMatchDialog: React.FC<JobMatchDialogProps> = ({
 }) => {
   const [isJobDescriptionOpen, setIsJobDescriptionOpen] = useState(false);
   
-  console.log('cm:: ', matchData)
+  console.log('cm:: ', matchData);
+  
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <CustomDialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
@@ -205,150 +269,92 @@ const JobMatchDialog: React.FC<JobMatchDialogProps> = ({
             </DialogTitle>
           </DialogHeader>
 
-        {isLoading && <LoadingSpinner />}
-        
-        {error && <ErrorMessage error={error} />}
-        
-        <AnimatePresence mode="wait">
-          {matchData && !isLoading && !error && (
-            <motion.div 
-              className="space-y-6"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2, delay: 0.1 }}
-            >
-            {/* Match Score */}
-            <MatchScore score={matchData.match_result.match_score} />
+          {isLoading && <LoadingSpinner />}
+          
+          {error && <ErrorMessage error={error} />}
+          
+          <AnimatePresence mode="wait">
+            {matchData && !isLoading && !error && (
+              <motion.div 
+                className="space-y-6"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2, delay: 0.1 }}
+              >
+                {/* Match Score */}
+                <MatchScore 
+                  title={matchData.match_result.Title} 
+                  overallScore={matchData.match_result['Match Rate'].Overall} 
+                />
 
-            {/* Job Description Collapsible Section */}
-            {jobDescription && (
-              <div className="border rounded-lg">
-                <button
-                  onClick={() => setIsJobDescriptionOpen(!isJobDescriptionOpen)}
-                  className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
-                >
-                  <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-blue-600" />
-                    <span className="text-sm font-medium">Job Description {email && `(${email})`}</span>
-                  </div>
-                  {isJobDescriptionOpen ? (
-                    <ChevronDown className="h-4 w-4 text-gray-500" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 text-gray-500" />
-                  )}
-                </button>
-                {isJobDescriptionOpen && (
-                  <div className="px-4 pb-4 border-t bg-gray-50">
-                    <div className="pt-3">
-                      <pre className="text-xs text-gray-700 whitespace-pre-wrap font-sans leading-relaxed">
-                        {jobDescription}
-                      </pre>
-                    </div>
+                {/* Job Description Collapsible Section */}
+                {jobDescription && (
+                  <div className="border rounded-lg">
+                    <button
+                      onClick={() => setIsJobDescriptionOpen(!isJobDescriptionOpen)}
+                      className="w-full px-4 py-3 flex items-center justify-between text-left hover:bg-gray-50 transition-colors"
+                    >
+                      <div className="flex items-center gap-2">
+                        <Award className="h-4 w-4 text-blue-600" />
+                        <span className="text-sm font-medium">Job Description {email && `(${email})`}</span>
+                      </div>
+                      {isJobDescriptionOpen ? (
+                        <ChevronDown className="h-4 w-4 text-gray-500" />
+                      ) : (
+                        <ChevronRight className="h-4 w-4 text-gray-500" />
+                      )}
+                    </button>
+                    {isJobDescriptionOpen && (
+                      <div className="px-4 pb-4 border-t bg-gray-50">
+                        <div className="pt-3">
+                          <pre className="text-xs text-gray-700 whitespace-pre-wrap font-sans leading-relaxed">
+                            {jobDescription}
+                          </pre>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 )}
-              </div>
+
+                {/* Match Rate Breakdown */}
+                <MatchRateBreakdown matchRate={matchData.match_result['Match Rate']} />
+
+                {/* Plus Points */}
+                <SectionCard
+                  icon={CheckCircle}
+                  title="Plus Points"
+                  variant="success"
+                  content={
+                    <ListSection 
+                      items={matchData.match_result['Plus Points']} 
+                      variant="success" 
+                    />
+                  }
+                />
+
+                {/* Dig Deeper */}
+                <SectionCard
+                  icon={Search}
+                  title="Dig Deeper (Things to be considered)"
+                  variant="warning"
+                  content={
+                    <ListSection 
+                      items={matchData.match_result['Dig Deeper (Things to be considered)']} 
+                      variant="warning" 
+                    />
+                  }
+                />
+
+                {/* Timestamp */}
+                {matchData.analysis_timestamp && (
+                  <div className="text-xs text-muted-foreground text-center pt-4 border-t">
+                    Analysis completed on {new Date(matchData.analysis_timestamp).toLocaleString()}
+                  </div>
+                )}
+              </motion.div>
             )}
-
-            {/* Analysis Overview */}
-            <SectionCard
-              icon={Users}
-              title="Analysis Overview"
-              content={
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  {matchData.match_result.analysis}
-                </p>
-              }
-            />
-
-            {/* Key Strengths */}
-            <SectionCard
-              icon={CheckCircle}
-              title="Key Alignments"
-              variant="success"
-              content={
-                <ListSection 
-                  items={matchData.match_result.key_alignments} 
-                  variant="success" 
-                />
-              }
-            />
-
-            {/* Areas of Concern */}
-            <SectionCard
-              icon={AlertTriangle}
-              title="Potential Concerns"
-              variant="warning"
-              content={
-                <ListSection 
-                  items={matchData.match_result.potential_concerns} 
-                  variant="warning" 
-                />
-              }
-            />
-
-            {/* Additional Insights */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <SectionCard
-                icon={DollarSign}
-                title="Salary Alignment"
-                content={
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    {matchData.match_result.salary_fit}
-                  </p>
-                }
-              />
-              
-              <SectionCard
-                icon={Users}
-                title="Culture Fit"
-                content={
-                  <p className="text-sm text-gray-700 leading-relaxed">
-                    {matchData.match_result.culture_fit}
-                  </p>
-                }
-              />
-            </div>
-
-            <SectionCard
-              icon={TrendingUp}
-              title="Growth Potential"
-              content={
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  {matchData.match_result.growth_potential}
-                </p>
-              }
-            />
-
-            {/* Next Steps */}
-            <SectionCard
-              icon={Clock}
-              title="Recommended Next Steps"
-              content={
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  {matchData.match_result.next_steps.recruiter}
-                </p>
-              }
-            />
-
-            {/* Recommendations */}
-            <SectionCard
-              icon={ArrowRight}
-              title="Strategic Recommendations"
-              content={
-                <p className="text-sm text-gray-700 leading-relaxed">
-                  {matchData.match_result.recommendations.recruiter}
-                </p>
-              }
-            />
-
-            {/* Timestamp */}
-            <div className="text-xs text-muted-foreground text-center pt-4 border-t">
-              Analysis completed on {new Date(matchData.analysis_timestamp).toLocaleString()}
-            </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
         </motion.div>
       </CustomDialogContent>
     </Dialog>

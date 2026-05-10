@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import React, { useContext } from 'react';
-import { 
+import {
   MapPin,
   Calendar1,
   BriefcaseBusiness,
@@ -39,7 +39,7 @@ enum Role {
 
 const Content = () => {
   const context = useContext(RootContext);
-  
+
   if (!context) {
     throw new Error('RootContext is not available')
   }
@@ -72,7 +72,7 @@ const Content = () => {
           "Mendesain ulang UI agar lebih mudah dibaca dan digunakan oleh pengguna",
           "Menghandle pengembangan dan peningkatan performa fitur, dan memperbaikin bug",
         ],
-        techStack: ["ci","jquery","mysql", "js", "bootstrap", "tailwind", "alpine", "gemini", "github"],
+        techStack: ["ci", "jquery", "mysql", "js", "bootstrap", "tailwind", "alpine", "gemini", "github"],
         tracking: "shipment-tracking.png",
         images: ["enlog.png", "enlog2.png"],
         roles: [Role.FrontendWebDeveloper],
@@ -106,13 +106,42 @@ const Content = () => {
         roles: [Role.FrontendWebDeveloper, Role.MobileDeveloper],
       },
       {
+        id: 9,
+        title: isEN ? "AI Challenge Buddy" : "AI Accountability Buddy (Bot Telegram)",
+        company: "Lemiles",
+        type: "Portfolio",
+        location: "Remote",
+        duration: "Personal",
+        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)"],
+        link: "https://lemiles.com",
+        date: "Apr 2025 - Current",
+        features: isEN ? [
+          "First AI-native project — acted as sole engineer designing and shipping the full product",
+          "Built a Telegram bot using the Hermes agent framework + Gemini 2.0 Flash with natural language intent detection (confirm / plan / undo / story)",
+          "Implemented missed-day detection with tiered empathetic responses (1 day → gentle nudge, 7+ days → soft intervention)",
+          "Built web dashboard with streak tracking, GitHub-style heatmap, and activity feed using Next.js 15 App Router",
+          "Automated Google Sheets sync per user via service account — auto-created, styled, and shared read-only on registration",
+          "Designed full data model and deployed on VPS with PostgreSQL, Drizzle ORM, and Auth.js v5"
+        ] : [
+          "Proyek AI-native pertama — berperan sebagai engineer tunggal yang merancang dan mengirimkan produk secara penuh",
+          "Membangun Telegram bot menggunakan Hermes agent framework + Gemini 2.0 Flash dengan deteksi intent bahasa alami",
+          "Mengimplementasikan deteksi hari yang terlewat dengan respons empatik bertingkat",
+          "Membangun web dashboard dengan pelacakan streak, heatmap gaya GitHub, dan activity feed menggunakan Next.js 15",
+          "Otomatisasi sinkronisasi Google Sheets per pengguna via service account",
+          "Merancang data model lengkap dan deploy di VPS dengan PostgreSQL, Drizzle ORM, dan Auth.js v5"
+        ],
+        techStack: ["next", "ts", "tailwind", "hermes-agent", "gemini", "telegram", "postgres", "drizzle", "docker", "github"],
+        images: ["lemiles.png", "lemiles2.png"],
+        roles: [Role.FullstackDeveloper],
+      },
+      {
         id: 7,
         title: "AI Job Analysis",
-        company: "Personaize",
+        company: "Personaized",
         type: "Portfolio",
         location: "Remote",
         badges: [isEN ? "Official Link" : "Tautan"],
-        link: "https://personaize.rizkiananto.com/",
+        link: "https://personaized.com/",
         duration: "Personal",
         date: "May 2025 - Current",
         features: isEN ? [
@@ -122,8 +151,8 @@ const Content = () => {
           "Riset dan analisis masalah untuk menghasilkan solusi",
           "Desain sistem, arsitektur, dan mengembangkan seluruh proyek"
         ],
-        techStack: ["next","ts","tailwind","qoder", "claude", "gemini", "postgres", "supabase", "github", "docker", "cloudflare", "nginx", "github"],
-        images: ["personaize.png", "personaize2.png"],
+        techStack: ["next", "ts", "tailwind", "qoder", "claude", "gemini", "postgres", "supabase", "github", "docker", "cloudflare", "nginx"],
+        images: ["personaized.png", "personaized2.png"],
         roles: [Role.FullstackDeveloper],
       },
       {
@@ -146,7 +175,7 @@ const Content = () => {
           "Coordinating with Backend to integrate REST API and UI/UX to develop new feature",
           "Participate in brainstorming with stakeholder to determine what feature or issue they want to add to platform"
         ],
-        techStack: ["react", "expo", "js", "jquery" ,"ci", "mysql", "github"],
+        techStack: ["react", "expo", "js", "jquery", "ci", "mysql", "github"],
         images: ["proedu2.png", "proedu3.png"],
         roles: [Role.FrontendWebDeveloper, Role.MobileDeveloper]
       },
@@ -188,7 +217,7 @@ const Content = () => {
           "Develop the feature using Next JS, Prisma ORM, and PostgreSQL. then Deploy the app into VPS using Docker",
           "Communicate with client about feature, requirement, and development process ",
         ],
-        techStack: ["next", "js", "ts", "prisma", "zustand", "docker", "github","nginx"],
+        techStack: ["next", "js", "ts", "prisma", "zustand", "docker", "github", "nginx"],
         images: ["suma-next.png", "suma-next-2.png"],
         roles: [Role.FullstackDeveloper]
       },
@@ -260,58 +289,61 @@ const Content = () => {
   };
 
   // Determine what to show based on filters
-  const shouldShowSection = (section:string) => {
+  const shouldShowSection = (section: string) => {
     if (projectFilters.all) return true;
     return projectFilters[section as keyof ProjectFilter];
   };
 
   return (
     <div className="h-full overflow-y-auto bg-gray-50 relative ">
-      <Navbar/>
+      <Navbar />
       <div className="p-6 space-y-6">
         {/* Projects Header */}
         <div className="space-y-4">
-          <section className='flex gap-2 items-center relative'>
-            <BriefcaseBusiness className='z-1'/> 
-            <h2 className="text-2xl font-bold text-gray-900 z-2">{t.projects}</h2>
+          <section className='flex gap-2 items-start relative'>
+            <BriefcaseBusiness className='z-1' />
+            <div>
+              <h2 className="text-md font-bold text-gray-900 z-2">{t.projects}</h2>
+
+              {/* Filter Checkboxes */}
+              <section>
+                <p className='text-xs text-gray-400 mb-3'>Choose what you want to read</p>
+                <div className="flex items-center space-x-4">
+                  <label className="flex items-center space-x-2 cursor-pointer border-r border-dashed border-sky-500 pr-5">
+                    <Checkbox
+                      checked={projectFilters.all}
+                      onCheckedChange={() => handleFilterChange('all')}
+                    />
+                    <Label className='text-xs'>{t.all}</Label>
+                  </label>
+
+                  <label className="flex items-center space-x-2 cursor-pointer">
+                    <Checkbox
+                      checked={projectFilters.companyRoles}
+                      onCheckedChange={() => handleFilterChange('companyRoles')}
+                    />
+                    <Label className='text-xs'>{t.companyRoles}</Label>
+                  </label>
+
+                  <label className="flex items-center space-x-2 cursor-pointer">
+                    <Checkbox
+                      checked={projectFilters.taskResponsibility}
+                      onCheckedChange={() => handleFilterChange('taskResponsibility')}
+                    />
+                    <Label className='text-xs'>{t.taskResponsibility}</Label>
+                  </label>
+
+                  <label className="flex items-center space-x-2 cursor-pointer">
+                    <Checkbox
+                      checked={projectFilters.portfolio}
+                      onCheckedChange={() => handleFilterChange('portfolio')}
+                    />
+                    <Label className='text-xs'>{t.portfolio}</Label>
+                  </label>
+                </div>
+              </section>
+            </div>
             <div className='bg-gradient-to-br from-teal-300 via-50% via-teal-100 to-teal-50 absolute rounded-full -left-3 -top-3 h-10 w-10 z-0'></div>
-          </section>
-          {/* Filter Checkboxes */}
-          <section>
-          <p className='text-xs text-gray-500 mb-3'>Choose what you want to read</p>
-          <div className="flex items-center space-x-4">
-            <label className="flex items-center space-x-2 cursor-pointer border-r border-dashed border-sky-500 pr-5">
-              <Checkbox
-                checked={projectFilters.all}
-                onCheckedChange={() =>  handleFilterChange('all')}
-              />
-              <Label className='text-xs'>{t.all}</Label>
-            </label>
-            
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <Checkbox
-                checked={projectFilters.companyRoles}
-                onCheckedChange={() =>  handleFilterChange('companyRoles')}
-              />
-              <Label className='text-xs'>{t.companyRoles}</Label>
-            </label>
-            
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <Checkbox
-                checked={projectFilters.taskResponsibility}
-                onCheckedChange={() =>  handleFilterChange('taskResponsibility')}
-              />
-              <Label className='text-xs'>{t.taskResponsibility}</Label>
-            </label>
-            
-            <label className="flex items-center space-x-2 cursor-pointer">
-              <Checkbox
-                checked={projectFilters.portfolio}
-                onCheckedChange={() =>  handleFilterChange('portfolio')}
-              />
-              <Label className='text-xs'>{t.portfolio}</Label>
-            </label>
-          </div>
           </section>
         </div>
 
@@ -328,9 +360,9 @@ const Content = () => {
               )}
               {project.duration === "Personal" && (
                 <div className="absolute -top-2 -right-3 transform origin-center">
-                  <div className="bg-fuchsia-100 ps-3 pe-2 shadow-md rounded-tl-md rounded-r-md flex gap-1 items-center">
+                  <div className="bg-gray-600 ps-3 pe-2 py-1 shadow-md rounded-tl-md rounded-r-md flex gap-1 items-center">
                     {/* <Hand size={12} className='text-zinc-500'/> */}
-                    <span className="text-xs text-gray-500 font-semibold tracking-wide">🍀 Personal Project</span>
+                    <span className="text-xs text-gray-200 font-semibold tracking-wide">Personal Project</span>
                   </div>
                 </div>
               )}
@@ -350,17 +382,17 @@ const Content = () => {
                         </div>
                         {project.link ? (
                           <div className='flex gap-1 items-center my-2 hover:cursor-pointer text-gray-600 hover:text-blue-600'>
-                            <Link2 className="" size={12}/>
+                            <Link2 className="" size={12} />
                             <a href={project.link} target='_blank' className="text-xs "> Visit Project</a>
                           </div>
-                        ):(
+                        ) : (
                           <div className='flex gap-1 items-center my-2'>
-                            <Link2Off className="text-gray-600" size={12}/>
+                            <Link2Off className="text-gray-600" size={12} />
                             <a href={project.link} target='_blank' className="text-xs text-gray-600 line-through"> Visit Project</a>
                           </div>
                         )}
                       </div>
-                      
+
                       {project.location && (
                         <div className="absolute right-0 top-1 flex items-center space-x-1 text-xs text-gray-500">
                           <Calendar1 className="w-3 h-3" />
@@ -382,7 +414,7 @@ const Content = () => {
                             ${role === Role.MobileDeveloper ? 'bg-lime-50 text-lime-700' : ''}
                             ${role === Role.FullstackDeveloper ? 'bg-rose-50 text-rose-700' : ''}
                             `}
-                            >
+                          >
                             <span className="text-gray-600">{role}</span>
                           </span>
                         );
@@ -412,7 +444,7 @@ const Content = () => {
                       {project.features.map((feature, idx) => (
                         <li key={idx} className="flex items-start space-x-2 text-sm text-gray-600">
                           <span className="text-gray-400">
-                            <Wand size={14}/>
+                            <Wand size={14} />
                           </span>
                           <span className='text-xs'>{feature}</span>
                         </li>

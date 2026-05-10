@@ -2,63 +2,66 @@ import { LanguageLabel, ProjectFilter, Tool, Languages } from '@/types';
 import { MonitorCog, Gpu, TabletSmartphone, Lightbulb } from 'lucide-react';
 
 // Tools/Tech Stack
-export const tools:Tool[] = [
-  { id: 'js', name: 'Javascript', icon: 'javascript.png', category: 'programming language', section: 'Frontend', selected: false, details: 'Dynamic programming language for web development and interactive user interfaces.', projects: ['AiChat', 'Suma'] },
-  { id: 'ts', name: 'TypeScript', icon: 'typescript.svg', category: 'programming language', section: 'Frontend', selected: false, details: 'Typed superset of JavaScript that adds static type definitions for better code quality.', projects: ['AiChat', 'Suma'] },
-  { id: 'svelte', name: 'SvelteKit', icon: 'svelte.svg', category: 'frontend framework', section: 'Frontend', selected: false, details: 'Modern web framework that compiles components to efficient vanilla JavaScript.', projects: ['AiChat', 'Suma'] },
-  { id: 'next', name: 'Next.JS', icon: 'nextjs.png', category: 'framework', section: 'Frontend', selected: false, details: '2 years Experience, used for both as a Frontend and Fullstack. familiar with App Router, with integration with Tanstack Query, Zustand, Drizzle ORM, and Docker.', projects: ['AiChat', 'Suma'] },
-  { id: 'react', name: 'React.JS', icon: 'reactjs-square.png', category: 'frontend library', section: 'Frontend', selected: false, details: 'JavaScript library for building user interfaces with component-based architecture.', projects: ['AiChat', 'Suma'] },
-  { id: 'zustand', name: 'Zustand', icon: 'zustand.jpeg', category: 'state management', section: 'Frontend', selected: false, details: 'Lightweight state management solution for React applications with minimal boilerplate.', projects: ['AiChat', 'Suma'] },
-  { id: 'tanstack', name: 'Tanstack', icon: 'tanstack.png', category: 'data fetching', section: 'Frontend', selected: false, details: 'Powerful data synchronization library for fetching, caching, and updating server state.', projects: ['AiChat', 'Suma'] },
-  { id: 'postgres', name: 'PostgreSQL', icon: 'postgresql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Advanced open-source relational database with robust features and SQL compliance.', projects: ['AiChat', 'Suma'] },
-  { id: 'mysql', name: 'MySQL', icon: 'mysql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Popular open-source relational database management system for web applications.', projects: ['AiChat', 'Proedu', 'Energy Logistics']},
-  { id: 'drizzle', name: 'Drizzle', icon: 'drizzle.png', category: 'ORM', section: 'Backend', selected: false, details: 'TypeScript ORM with type-safe database queries and excellent developer experience.', projects: ['AiChat', 'Suma'] },
-  { id: 'docker', name: 'Docker', icon: 'docker.webp', category: 'containerization', section: 'Other Service', selected: false, details: 'Platform for developing, shipping, and running applications using containerization technology.', projects: ['AiChat', 'Suma'] },
-  { id: 'nest', name: 'Nest.JS', icon: 'nestjs.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Progressive Node.js framework for building scalable server-side applications with TypeScript.', projects: ['AiChat', 'Suma'] },
+export const tools: Tool[] = [
+  { id: 'js', name: 'Javascript', icon: 'javascript.png', category: 'programming language', section: 'Frontend', selected: false, details: 'Dynamic programming language for web development and interactive user interfaces.', projects: ['AiChat', 'Proedu', 'Izistay', 'Sumaplafon', 'Energy Logistics'] },
+  { id: 'ts', name: 'TypeScript', icon: 'typescript.svg', category: 'programming language', section: 'Frontend', selected: false, details: 'Typed superset of JavaScript that adds static type definitions for better code quality.', projects: ['AiChat', 'Personaize', 'Sumaplafon', 'Lemiles'] },
+  { id: 'svelte', name: 'SvelteKit', icon: 'svelte.svg', category: 'frontend framework', section: 'Frontend', selected: false, details: 'Modern web framework that compiles components to efficient vanilla JavaScript.', projects: [] },
+  { id: 'next', name: 'Next.JS', icon: 'nextjs.png', category: 'framework', section: 'Frontend', selected: false, details: '2 years Experience, used for both as a Frontend and Fullstack. familiar with App Router, with integration with Tanstack Query, Zustand, Drizzle ORM, and Docker.', projects: ['AiChat', 'Personaize', 'Sumaplafon', 'Lemiles'] },
+  { id: 'react', name: 'React.JS', icon: 'reactjs-square.png', category: 'frontend library', section: 'Frontend', selected: false, details: 'JavaScript library for building user interfaces with component-based architecture.', projects: ['AiChat', 'Proedu', 'Portfolio Ani'] },
+  { id: 'zustand', name: 'Zustand', icon: 'zustand.jpeg', category: 'state management', section: 'Frontend', selected: false, details: 'Lightweight state management solution for React applications with minimal boilerplate.', projects: ['AiChat', 'Sumaplafon'] },
+  { id: 'tanstack', name: 'Tanstack', icon: 'tanstack.png', category: 'data fetching', section: 'Frontend', selected: false, details: 'Powerful data synchronization library for fetching, caching, and updating server state.', projects: [] },
+  { id: 'postgres', name: 'PostgreSQL', icon: 'postgresql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Advanced open-source relational database with robust features and SQL compliance.', projects: ['Personaize', 'Lemiles'] },
+  { id: 'mysql', name: 'MySQL', icon: 'mysql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Popular open-source relational database management system for web applications.', projects: ['Energy Logistics', 'Proedu', 'Izistay', 'Sumaplafon'] },
+  { id: 'drizzle', name: 'Drizzle', icon: 'drizzle.png', category: 'ORM', section: 'Backend', selected: false, details: 'TypeScript ORM with type-safe database queries and excellent developer experience.', projects: ['Lemiles'] },
+  { id: 'docker', name: 'Docker', icon: 'docker.webp', category: 'containerization', section: 'Other Service', selected: false, details: 'Platform for developing, shipping, and running applications using containerization technology.', projects: ['Personaize', 'Sumaplafon', 'Lemiles'] },
+  { id: 'nest', name: 'Nest.JS', icon: 'nestjs.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Progressive Node.js framework for building scalable server-side applications with TypeScript.', projects: [] },
   { id: 'expo', name: 'React Expo', icon: 'expo.png', category: 'mobile framework', section: 'Frontend', selected: false, details: 'React Native Framework to create mobile app using React. very helpful since it also provide development build app and other usefull function like OTA update and EAS', projects: ['AiChat', 'Proedu'] },
-  { id: 'tailwind', name: 'Tailwind CSS', icon: 'tailwind.png', category: 'CSS framework', section: 'Frontend', selected: false, details: 'Utility-first CSS framework for rapidly building custom user interfaces.', projects: ['AiChat', 'Suma', 'Energy Logistics']},
-  { id: 'framer-motion', name: 'Framer Motion', icon: 'framer-motion.svg', category: 'animation library', section: 'Frontend', selected: false, details: 'React library for building performant and scalable animations and transitions.', projects: ['Personaize']},
-  { id: 'bootstrap', name: 'Bootstrap', icon: 'bootstrap.png', category: 'CSS framework', section: 'Frontend', selected: false, details: 'Popular CSS framework for developing responsive and mobile-first websites.', projects: ['AiChat', 'Suma', 'Energy Logistics']},
-  { id: 'mantine', name: 'Mantine', icon: 'mantine.png', category: 'UI library', section: 'Frontend', selected: false, details: 'React components library with native dark theme support and flexible customization.', projects: ['AiChat', 'Suma', 'Energy Logistics']},
-  { id: 'heroui', name: 'Hero UI', icon: 'hero-ui.webp', category: 'UI library', section: 'Frontend', selected: false, details: 'Modern React UI library with beautiful components and excellent accessibility features.', projects: ['Suma']},
-  { id: 'laravel', name: 'Laravel', icon: 'laravel.jpeg', category: 'backend framework', section: 'Backend', selected: false, details: 'PHP web application framework with expressive syntax and robust features for web development.', projects: ['AiChat', 'Suma'] },
-  { id: 'ci', name: 'Codeigniter', icon: 'codeigniter.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Lightweight PHP framework with simple configuration and excellent performance.', projects: ['Energy Logistics', 'Proedu', 'Izistay']},
-  { id: 'jquery', name: 'jQuery', icon: 'jquery2.svg', category: 'JavaScript library', section: 'Frontend', selected: false, details: 'Fast and lightweight JavaScript library for DOM manipulation and event handling.', projects: ['Energy Logistics', 'Izistay', 'Proedu']},
-  { id: 'alpine', name: 'Alpine JS', icon: 'alpinejs.png', category: 'JavaScript framework', section: 'Frontend', selected: false, details: 'Minimal framework for composing JavaScript behavior directly in HTML markup.', projects: ['Energy Logistics']},
-  { id: 'socketio', name: 'Socket.IO', icon: 'socket-io.svg', category: 'real-time communication', section: 'Backend', selected: false, details: 'Real-time bidirectional event-based communication library for web applications.', projects: ['AiChat']},
-  { id: 'zod', name: 'zod', icon: 'zod.jpeg', category: 'schema validation', section: 'Backend', selected: false, details: 'TypeScript-first schema validation library with static type inference.', projects: ['AiChat']},
-  { id: 'formik', name: 'Formik', icon: 'formik.png', category: 'form library', section: 'Frontend', selected: false, details: 'React library for building forms with validation, error handling, and field management.', projects: ['AiChat']},
-  { id: 'react-hook-form', name: 'React Hook Form', icon: 'react-hook-form.png', category: 'form library', section: 'Frontend', selected: false, details: 'Performant, flexible forms library with easy validation and minimal re-renders.', projects: ['Suma']},
-  { id: 'vite', name: 'Vite', icon: 'vite.png', category: 'build tool', section: 'Frontend', selected: false, details: 'Fast build tool and development server with hot module replacement for modern web projects.', projects: ['AiChat']},
-  { id: 'prisma', name: 'Prisma ORM', icon: 'prisma.webp', category: 'ORM', section: 'Backend', selected: false, details: 'Modern database toolkit with type-safe client and intuitive data modeling.', projects: ['Suma']},
-  { id: 'claude', name: 'Calude (Anthropic)', icon: 'claude.svg', category: 'AI model', section: 'AI', selected: false, details: 'Advanced AI assistant by Anthropic for natural language processing and conversation.', projects: ['AIChat']},
-  { id: 'gemini', name: 'Google Gemini', icon: 'gemini-old.png', category: 'AI model', section: 'AI', selected: false, details: 'Google\'s multimodal AI model for text, image, and code generation tasks.', projects: ['AIChat']},
-  { id: 'deepseek', name: 'Deepseek', icon: 'deepseek.png', category: 'AI model', section: 'AI', selected: false, details: 'Powerful AI model optimized for coding and technical problem-solving tasks.', projects: ['AIChat']},
-  { id: 'vscode', name: 'Visual Studio Code', icon: 'vscode.png', category: 'code editor', section: 'Code Editor', selected: false, details: 'Popular source code editor with rich ecosystem of extensions and integrated terminal.', projects: ['AIChat']},
-  { id: 'cursor', name: 'Cursor', icon: 'cursor.png', category: 'AI-powered editor', section: 'Code Editor', selected: false, details: 'AI-enhanced code editor with intelligent suggestions and automated code generation.', projects: ['Suma']},
-  { id: 'qoder', name: 'Qoder', icon: 'qoder.png', category: 'AI-powered editor', section: 'Code Editor', selected: false, details: 'Advanced AI-powered development environment with intelligent code assistance and collaboration.', projects: ['Personaize']},
-  { id: 'void', name: 'Void', icon: 'void.png', category: 'code editor', section: 'Code Editor', selected: false, details: 'Minimalist code editor focused on speed and simplicity for efficient coding workflow.', projects: ['Personaize']},
-  { id: 'supabase', name: 'Supabase', icon: 'supabase.jpeg', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Provides a managed PostgreSQL database and other essential backend tools (authentication, serverless functions, etc)', projects: ['Personaice']},
-  { id: 'neondb', name: 'Neon DB', icon: 'neondb.jpeg', category: 'Cloud Database Service (postgresql)', section: 'Backend', selected: false, details: 'Cloud-native, serverless, fully managed PostgreSQL database service', projects: ['Suma']},
-  { id: 'firebase', name: 'Firebase', icon: 'firebase2.png', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Set of backend cloud computing services and application development platforms provided by Google', projects: ['AiChat']},
-  { id: 'github', name: 'Github', icon: 'github.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['Izistay, Proedu, Suma, AiChat, Personaize']},
-  { id: 'gitlab', name: 'Gitlab', icon: 'gitlab.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat']},
-  { id: 'netlify', name: 'Netlify', icon: 'netlify.webp', category: 'Deployment', section: 'Other Service', selected: false, details: 'Fast Static Web Hosting with Continuous Deployment by Vercel', projects: ['Portfolio Ani']},
-  { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare.jpg', category: 'CDN', section: 'Other Service', selected: false, details: 'Cloudflare is a global CDN and DDoS protection service.', projects: ['Personaize', 'Suma']},
-  { id: 'nginx', name: 'Nginx', icon: 'nginx.webp', category: 'Web Server', section: 'Other Service', selected: false, details: 'High-performance web server and reverse proxy server.', projects: ['Personaize', 'Suma']},
-  { id: 'slack', name: 'Slack', icon: 'slack.png', category: 'Team Collaboration', section: 'Other Service', selected: false, details: 'Slack is a communication platform that connects teams and enables them to work together more efficiently.', projects: ['AiChat']},
-  { id: 'clickup', name: 'Clickup', icon: 'clickup.png', category: 'Project Management', section: 'Other Service', selected: false, details: 'All-in-one work management platform that helps teams stay organized and productive.', projects: ['AiChat']},
-  { id: 'ryver', name: 'Ryver', icon: 'ryver.webp', category: 'Team Management', section: 'Other Service', selected: false, details: 'Communication and collaboration platform for teams, similar to Slack.', projects: ['AiChat']},
+  { id: 'tailwind', name: 'Tailwind CSS', icon: 'tailwind.png', category: 'CSS framework', section: 'Frontend', selected: false, details: 'Utility-first CSS framework for rapidly building custom user interfaces.', projects: ['AiChat', 'Personaize', 'Lemiles', 'Energy Logistics'] },
+  { id: 'framer-motion', name: 'Framer Motion', icon: 'framer-motion.svg', category: 'animation library', section: 'Frontend', selected: false, details: 'React library for building performant and scalable animations and transitions.', projects: [] },
+  { id: 'bootstrap', name: 'Bootstrap', icon: 'bootstrap.png', category: 'CSS framework', section: 'Frontend', selected: false, details: 'Popular CSS framework for developing responsive and mobile-first websites.', projects: ['AiChat', 'Sumaplafon', 'Energy Logistics'] },
+  { id: 'mantine', name: 'Mantine', icon: 'mantine.png', category: 'UI library', section: 'Frontend', selected: false, details: 'React components library with native dark theme support and flexible customization.', projects: [] },
+  { id: 'heroui', name: 'Hero UI', icon: 'hero-ui.webp', category: 'UI library', section: 'Frontend', selected: false, details: 'Modern React UI library with beautiful components and excellent accessibility features.', projects: [] },
+  { id: 'laravel', name: 'Laravel', icon: 'laravel.jpeg', category: 'backend framework', section: 'Backend', selected: false, details: 'PHP web application framework with expressive syntax and robust features for web development.', projects: ['AiChat', 'Sumaplafon'] },
+  { id: 'ci', name: 'Codeigniter', icon: 'codeigniter.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Lightweight PHP framework with simple configuration and excellent performance.', projects: ['Energy Logistics', 'Proedu', 'Izistay'] },
+  { id: 'jquery', name: 'jQuery', icon: 'jquery2.svg', category: 'JavaScript library', section: 'Frontend', selected: false, details: 'Fast and lightweight JavaScript library for DOM manipulation and event handling.', projects: ['Energy Logistics', 'Izistay', 'Proedu'] },
+  { id: 'alpine', name: 'Alpine JS', icon: 'alpinejs.png', category: 'JavaScript framework', section: 'Frontend', selected: false, details: 'Minimal framework for composing JavaScript behavior directly in HTML markup.', projects: ['Energy Logistics'] },
+  { id: 'socketio', name: 'Socket.IO', icon: 'socket-io.svg', category: 'real-time communication', section: 'Backend', selected: false, details: 'Real-time bidirectional event-based communication library for web applications.', projects: ['AiChat'] },
+  { id: 'zod', name: 'zod', icon: 'zod.jpeg', category: 'schema validation', section: 'Backend', selected: false, details: 'TypeScript-first schema validation library with static type inference.', projects: [] },
+  { id: 'formik', name: 'Formik', icon: 'formik.png', category: 'form library', section: 'Frontend', selected: false, details: 'React library for building forms with validation, error handling, and field management.', projects: ['AiChat'] },
+  { id: 'react-hook-form', name: 'React Hook Form', icon: 'react-hook-form.png', category: 'form library', section: 'Frontend', selected: false, details: 'Performant, flexible forms library with easy validation and minimal re-renders.', projects: ['AiChat'] },
+  { id: 'vite', name: 'Vite', icon: 'vite.png', category: 'build tool', section: 'Frontend', selected: false, details: 'Fast build tool and development server with hot module replacement for modern web projects.', projects: ['AiChat'] },
+  { id: 'prisma', name: 'Prisma ORM', icon: 'prisma.webp', category: 'ORM', section: 'Backend', selected: false, details: 'Modern database toolkit with type-safe client and intuitive data modeling.', projects: ['Sumaplafon'] },
+  { id: 'claude', name: 'Claude (Anthropic)', icon: 'claude.svg', category: 'AI model', section: 'AI', selected: false, details: 'Advanced AI assistant by Anthropic for natural language processing and conversation.', projects: ['Personaize'] },
+  { id: 'gemini', name: 'Google Gemini', icon: 'gemini-old.png', category: 'AI model', section: 'AI', selected: false, details: 'Google\'s multimodal AI model for text, image, and code generation tasks.', projects: ['Personaize', 'Energy Logistics', 'Lemiles'] },
+  { id: 'deepseek', name: 'Deepseek', icon: 'deepseek.png', category: 'AI model', section: 'AI', selected: false, details: 'Powerful AI model optimized for coding and technical problem-solving tasks.', projects: [] },
+  { id: 'vscode', name: 'Visual Studio Code', icon: 'vscode.png', category: 'code editor', section: 'Code Editor', selected: false, details: 'Popular source code editor with rich ecosystem of extensions and integrated terminal.', projects: [] },
+  { id: 'cursor', name: 'Cursor', icon: 'cursor.png', category: 'AI-powered editor', section: 'Code Editor', selected: false, details: 'AI-enhanced code editor with intelligent suggestions and automated code generation.', projects: [] },
+  { id: 'qoder', name: 'Qoder', icon: 'qoder.png', category: 'AI-powered editor', section: 'Code Editor', selected: false, details: 'Advanced AI-powered development environment with intelligent code assistance and collaboration.', projects: ['Personaize'] },
+  { id: 'void', name: 'Void', icon: 'void.png', category: 'code editor', section: 'Code Editor', selected: false, details: 'Minimalist code editor focused on speed and simplicity for efficient coding workflow.', projects: [] },
+  { id: 'supabase', name: 'Supabase', icon: 'supabase.jpeg', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Provides a managed PostgreSQL database and other essential backend tools (authentication, serverless functions, etc)', projects: ['Personaize'] },
+  { id: 'neondb', name: 'Neon DB', icon: 'neondb.jpeg', category: 'Cloud Database Service (postgresql)', section: 'Backend', selected: false, details: 'Cloud-native, serverless, fully managed PostgreSQL database service', projects: [] },
+  { id: 'firebase', name: 'Firebase', icon: 'firebase2.png', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Set of backend cloud computing services and application development platforms provided by Google', projects: [] },
+  { id: 'github', name: 'Github', icon: 'github.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat', 'Personaize', 'Proedu', 'Izistay', 'Sumaplafon', 'Lemiles', 'Portfolio Ani', 'Energy Logistics'] },
+  { id: 'gitlab', name: 'Gitlab', icon: 'gitlab.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat'] },
+  { id: 'netlify', name: 'Netlify', icon: 'netlify.webp', category: 'Deployment', section: 'Other Service', selected: false, details: 'Fast Static Web Hosting with Continuous Deployment by Vercel', projects: ['Portfolio Ani'] },
+  { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare.jpg', category: 'CDN', section: 'Other Service', selected: false, details: 'Cloudflare is a global CDN and DDoS protection service.', projects: ['Personaize'] },
+  { id: 'nginx', name: 'Nginx', icon: 'nginx.webp', category: 'Web Server', section: 'Other Service', selected: false, details: 'High-performance web server and reverse proxy server.', projects: ['Personaize', 'Sumaplafon'] },
+  { id: 'slack', name: 'Slack', icon: 'slack.png', category: 'Team Collaboration', section: 'Other Service', selected: false, details: 'Slack is a communication platform that connects teams and enables them to work together more efficiently.', projects: ['AiChat'] },
+  { id: 'clickup', name: 'Clickup', icon: 'clickup.png', category: 'Project Management', section: 'Other Service', selected: false, details: 'All-in-one work management platform that helps teams stay organized and productive.', projects: ['AiChat'] },
+  { id: 'ryver', name: 'Ryver', icon: 'ryver.webp', category: 'Team Management', section: 'Other Service', selected: false, details: 'Communication and collaboration platform for teams, similar to Slack.', projects: ['AiChat'] },
+  { id: 'openclaw', name: 'Openclaw', icon: 'openclaw.png', category: 'AI', section: 'AI', selected: false, details: 'Personal AI Assistant', projects: [] },
+  { id: 'hermes-agent', name: 'Hermes Agent', icon: 'hermes-agent.png', category: 'AI coding agent', section: 'AI', selected: false, details: 'AI-powered coding agent for autonomous software development tasks, code generation, and multi-step engineering workflows.', projects: ['Lemiles'] },
+  { id: 'telegram', name: 'Telegram', icon: 'telegram.webp', category: 'Messenger', section: 'Other Service', selected: false, details: 'Messenger platform used to build the Lemiles accountability bot.', projects: ['Lemiles'] },
 ];
 
 // Translations
-export const translations:Languages = {
+export const translations: Languages = {
   EN: {
     myWorks: "My Works",
     contactMe: "Contact Me",
     downloadCV: "Download CV",
-    title: "In development field for around 7 years, building web and mobile app",
-    subtitle: "ready to transform and grow your business together",
+    title: "7+ years shipping web & mobile. Now building AI-native.",
+    subtitle: "Open to full-time roles & product collaboration",
     name: "Rizkianto Akbar",
     roles: [
       {
@@ -77,34 +80,79 @@ export const translations:Languages = {
         img: 'frontend.png',
       },
     ],
+    contributed: [
+      {
+        name: "Personaized",
+        image: 'personaized.png',
+        link: 'https://personaized.com',
+        shortIntro: 'Resume to Personal Website Generator',
+        mainTask: 'Enhance your branding by having Personal website. Upload your resume and Instantly generate personal website in one click.',
+        techStack: ["next", "gemini", "supabase"],
+      },
+      {
+        name: "Lemiles",
+        image: 'lemiles-logo.png',
+        link: 'https://lemiles.com',
+        shortIntro: '100-Day Challenge Buddy Telegram',
+        mainTask: 'First AI-native project as sole engineer. Built a Telegram bot powered by Hermes agent framework + Gemini 2.0 Flash where users set a 100-day challenge and receive daily check-ins from a buddy that feels human — with intent detection, missed-day nudges, streak tracking, Google Sheets sync, and a web dashboard.',
+        techStack: ["next", "hermes-agent", "gemini", "telegram"],
+      },
+      {
+        name: "Energy Logistics",
+        image: 'enlog-logo.png',
+        link: 'https://www.energy-logistics.co.id',
+        shortIntro: 'Logistic solution for B2B',
+        mainTask: 'Creating User Interface by using Alpine JS inside Codeigniter. Planning for migration and better technologies to improve system performance that leads to business impact.',
+        techStack: ["ci", "alpine", "jquery"],
+      },
+      {
+        name: "AiChat",
+        image: 'aichat-logo.svg',
+        link: 'https://aichat.com',
+        shortIntro: 'AI Conversation',
+        mainTask: 'Next level Autonomous & Purpose-Driven Chatbots for transforming businesses.',
+        techStack: ["next", "expo", "laravel"],
+      },
+      {
+        name: "Izistay",
+        image: 'izistay-logo.png',
+        link: 'https://www.instagram.com/izi_stay/',
+        shortIntro: 'Property Rental',
+        mainTask: 'Search for a room, book, and pay online. If you have your own property register it and sell it faster',
+        techStack: ["ci", "mysql", "jquery"],
+      },
+      {
+        name: "Proedu",
+        image: 'proedu-logo.png',
+        link: 'https://www.linkedin.com/company/proedu-id',
+        shortIntro: 'LSM for Teacher',
+        mainTask: 'Being a teacher require to keep learning, this is the platform when teacher can get the lesson to improve themself. Teacher also can manage curriculum for student',
+        techStack: ["react", "expo", "ci"],
+      },
+      {
+        name: "Sumaplafon",
+        image: 'suma-logo.png',
+        link: 'https://katalog.sumaplafon.com',
+        shortIntro: 'Product Catalouge of Material Shop',
+        mainTask: 'Being a teacher require to keep learning, this is the platform when teacher can get the lesson to improve themself. Teacher also can manage curriculum for student',
+        techStack: ["next", "docker", "github"],
+      },
+      {
+        name: "Portfolio - Nharyani",
+        image: 'nharyani-logo.png',
+        link: 'https://nrharyani.com/',
+        shortIntro: 'Personal Portfolio',
+        mainTask: 'Being a teacher require to keep learning, this is the platform when teacher can get the lesson to improve themself. Teacher also can manage curriculum for student',
+        techStack: ["react"],
+      },
+    ],
     location: "Indonesia (Bogor)",
     tagline: "Looking to collaborate? Put your request through the form below.",
     agentDescription: "A custom AI will analyze our potential match.",
     storedTagline: "Hello {email}, you still there?",
     storedDescription: "We have analyzed your description before, click 'view' to check it out.",
     writeDescription: "Write description",
-    sampleAgentValue: `Job Requirements Example
-
-Position: Frontend Web Developer
-
-Experience Required: 2+ years
-
-Key Technologies:
-- Frontend & Fullstack development
-- App Router architecture
-- State management with **Zustand**
-- API handling with **Tanstack Query**
-- Database ORM with **Drizzle**
-- Containerization with **Docker**
-
-What to include in your job posting:
-1. **Job Title** and **Company Name**
-2. **Required Experience Level**
-3. **Specific Technologies** or frameworks
-4. **Employment Type** (Remote/On-site/Hybrid)
-5. **Key Responsibilities**
-
-*Tip: The more specific you are, the better the analysis will be!*`,
+    sampleAgentValue: `Describe the role, requirements, and other details about this opportunity...`,
     uploadJobPoster: "Upload job poster",
     pasteLink: "Paste Link",
     requirementPlaceholder: "Paste your requirement here...",
@@ -148,34 +196,41 @@ What to include in your job posting:
         icon: Lightbulb,
       },
     ],
+
+    contributed: [
+      {
+        name: "Personaized",
+        image: 'personaized.png',
+        link: 'https://personaized.com'
+      },
+      {
+        name: "Lemiles",
+        image: 'lemiles-logo.png',
+        link: ''
+      },
+      {
+        name: "AiChat",
+        image: 'aichat-logo.svg',
+        link: 'https://aichat.com'
+      },
+      {
+        name: "Izistay",
+        image: 'izistay-logo.png',
+        link: 'https://www.instagram.com/izi_stay/'
+      },
+      {
+        name: "Proedu",
+        image: 'proedu-logo.png',
+        link: 'https://www.linkedin.com/company/proedu-id'
+      },
+    ],
     location: "Indonesia (Bogor)",
     tagline: "Apakah saya orang yang anda cari? Cepat cek sekarang!",
     agentDescription: "Tulis deskripsi sejelas mungkin untuk hasil yang lebih baik",
     storedTagline: "Halo apakah kamu {email}",
     storedDescription: "Kamu telah mendapatkan analisa dari deskripsi sebelumnya, klik 'view' untuk melihatnya.",
     writeDescription: "Tulis deskripsi",
-    sampleAgentValue: `## Contoh Persyaratan Pekerjaan
-
-**Posisi:** Frontend Web Developer
-
-**Pengalaman yang Dibutuhkan:** 2+ tahun
-
-**Teknologi Utama:**
-- Pengembangan Frontend & Fullstack
-- Arsitektur App Router
-- Manajemen state dengan **Zustand**
-- Penanganan API dengan **Tanstack Query**
-- Database ORM dengan **Drizzle**
-- Kontainerisasi dengan **Docker**
-
-**Yang perlu disertakan dalam posting pekerjaan:**
-1. **Nama Posisi** dan **Nama Perusahaan**
-2. **Level Pengalaman yang Dibutuhkan**
-3. **Teknologi Spesifik** atau framework
-4. **Jenis Pekerjaan** (Remote/On-site/Hybrid)
-5. **Tanggung Jawab Utama**
-
-*Tips: Semakin spesifik informasi yang diberikan, semakin baik hasil analisisnya!*`,
+    sampleAgentValue: `Jelaskan the posisi, persyaratan, dan penjelasan lainnya tentang projek/pekerjaan ini...`,
     uploadJobPoster: "Unggah poster pekerjaan",
     pasteLink: "Tempel Tautan",
     requirementPlaceholder: "Tempel kebutuhan Anda di sini...",

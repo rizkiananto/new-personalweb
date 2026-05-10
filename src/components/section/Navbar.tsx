@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import React, { useContext } from 'react';
-import { Download, Moon } from 'lucide-react';
+import { Download, MapPin, Moon } from 'lucide-react';
 import { RootContext } from '@/contexts/RootContext';
 import { Roboto_Slab } from 'next/font/google';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -14,11 +14,11 @@ const roboto = Roboto_Slab({
 
 const Navbar = () => {
   const context = useContext(RootContext);
-  
+
   if (!context) {
     throw new Error('Navbar must be used within a RootContext Provider');
   }
-  
+
   const { language, setLanguage, viewMode, setViewMode, isMobile, t } = context;
 
   return (
@@ -29,19 +29,25 @@ const Navbar = () => {
             {/* <button className="text-sm font-medium text-gray-900 hover:text-blue-600 transition-colors">
               {t.myWorks}
             </button> */}
-            <a href="https://id.linkedin.com/in/akbarrizki" target='_blank'>
-            <button className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-              <Download className="w-4 h-4" />
-              <span>{t.downloadCV}</span>
-            </button>
+            {/* https://drive.google.com/file/d/1srguRQlY1_lZi3S8gdV0xOtINds7vGxn/view?usp=drive_link */}
+            <a href="https://drive.google.com/uc?export=download&id=1srguRQlY1_lZi3S8gdV0xOtINds7vGxn" target='_blank'>
+              <button className="flex items-center space-x-2 text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                <Download className="w-4 h-4" />
+                <span>{t.downloadCV}</span>
+              </button>
             </a>
             <a href="https://id.linkedin.com/in/akbarrizki" target='_blank'>
-            <button className="text-sm font-medium text-gray-600 hover:text-blue-600 transition-colors">
-              {t.contactMe}
-            </button>
+              <button className="text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                {t.contactMe}
+              </button>
+            </a>
+            <a href="https://blog.rizkiananto.com" target='_blank'>
+              <button className="text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
+                Blog
+              </button>
             </a>
           </div>
-          
+
           <div className="flex items-center space-x-4">
             {/* View Mode Toggle */}
             {!isMobile && (
@@ -49,13 +55,19 @@ const Navbar = () => {
                 <SwitcherDemo
                   onClick={() => setViewMode(viewMode === 'Compact' ? 'Mobile' : 'Compact')}
                   value={viewMode !== 'Compact'}
-                  />
+                />
               </div>
             )}
+
+            <div className="hidden md:flex items-center gap-1 mt-0.5">
+              <MapPin className="w-3 h-3 flex-shrink-0" />
+              🇮🇩
+              <span className='text-xs truncate'>{t.location}</span>
+            </div>
             {/* Language Switcher */}
             <button
               onClick={() => setLanguage(language === 'EN' ? 'ID' : 'EN')}
-              className="flex items-center space-x-2 text-sm text-gray-700 hover:text-gray-900"
+              className="flex hidden items-center space-x-2 text-sm text-gray-700 hover:text-gray-900"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -63,9 +75,9 @@ const Navbar = () => {
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: -20 }}
-                  transition={{ 
-                    duration: 0.3, 
-                    ease: [0.4, 0, 0.2, 1] 
+                  transition={{
+                    duration: 0.3,
+                    ease: [0.4, 0, 0.2, 1]
                   }}
                   className="text-lg"
                 >
@@ -78,12 +90,12 @@ const Navbar = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  transition={{ 
-                    duration: 0.3, 
+                  transition={{
+                    duration: 0.3,
                     ease: [0.4, 0, 0.2, 1],
-                    delay: 0.1 
+                    delay: 0.1
                   }}
-                  className="font-medium text-gray-700 text-sm whitespace-nowrap"
+                  className="font-medium text-gray-700 text-xs whitespace-nowrap"
                 >
                   <span className="font-medium">{language}</span>
                 </motion.span>

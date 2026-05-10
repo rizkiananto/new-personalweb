@@ -5,6 +5,16 @@ export interface Role {
   icon: LucideIcon
   img?: string
 }
+
+export interface ContributedProps {
+  name: string,
+  image: string,
+  link?: string,
+  shortIntro?: string,
+  mainTask?: string,
+  techStack?: string[],
+  blogLink?: string, 
+}
 export interface LanguageLabel {
   myWorks: string
   contactMe: string
@@ -14,6 +24,7 @@ export interface LanguageLabel {
   name: string
   // roles: string[]
   roles: Role[]
+  contributed: ContributedProps[]
   location: string
   tagline: string
   storedTagline: string
