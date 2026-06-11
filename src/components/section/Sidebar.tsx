@@ -334,16 +334,16 @@ const Sidebar = () => {
           {/* Currently Building */}
           <div>
             <p className="text-[10px] uppercase tracking-widest text-gray-400 font-medium mb-1.5">Creator OF</p>
-            <div className="flex gap-1.5">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-1.5 items-stretch">
               {t.contributed
-                .filter((c: ContributedProps) => ['Personaized', 'Lemiles'].includes(c.name))
+                .filter((c: ContributedProps) => ['Vacansearch', 'Personaized', 'Lemiles'].includes(c.name))
                 .map((product: ContributedProps, i: number) => (
                   <a
                     key={i}
                     href={product.link || '#'}
                     target={product.link ? '_blank' : '_self'}
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 bg-gray-100 w-fit border border-gray-100 rounded-lg p-2 hover:border-gray-300 hover:shadow-sm transition-all duration-200 group"
+                    className="flex items-start gap-2 h-full bg-gray-100 border border-gray-100 rounded-lg p-2 hover:border-gray-300 hover:shadow-sm transition-all duration-200 group"
                   >
                     <Image
                       src={`/product-contributed/${product.image}`}
@@ -355,7 +355,7 @@ const Sidebar = () => {
                     />
                     <div className="min-w-0">
                       <p className="text-[10px] font-medium text-gray-800 leading-tight truncate">{product.name}</p>
-                      <p className="text-[10px] text-gray-400 line-clamp-1 leading-tight">{product.shortIntro}</p>
+                      <p className="text-[10px] text-gray-400 line-clamp-2 leading-tight">{product.shortIntro}</p>
                     </div>
                   </a>
                 ))}

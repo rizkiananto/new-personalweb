@@ -100,8 +100,8 @@ const Portfolio = () => {
             </div>
           </div>
         ) : (
-          <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-2xl shadow-2xl relative pt-14">
+          <div className="min-h-screen flex items-center justify-center overflow-x-hidden">
+            <div className="w-full max-w-2xl shadow-2xl relative pt-14">
               <div className="bg-white">
                 <Sidebar />
               </div>

@@ -7,13 +7,13 @@ export const tools: Tool[] = [
   { id: 'ts', name: 'TypeScript', icon: 'typescript.svg', category: 'programming language', section: 'Frontend', selected: false, details: 'Typed superset of JavaScript that adds static type definitions for better code quality.', projects: ['AiChat', 'Personaize', 'Sumaplafon', 'Lemiles'] },
   { id: 'svelte', name: 'SvelteKit', icon: 'svelte.svg', category: 'frontend framework', section: 'Frontend', selected: false, details: 'Modern web framework that compiles components to efficient vanilla JavaScript.', projects: [] },
   { id: 'next', name: 'Next.JS', icon: 'nextjs.png', category: 'framework', section: 'Frontend', selected: false, details: '2 years Experience, used for both as a Frontend and Fullstack. familiar with App Router, with integration with Tanstack Query, Zustand, Drizzle ORM, and Docker.', projects: ['AiChat', 'Personaize', 'Sumaplafon', 'Lemiles'] },
-  { id: 'react', name: 'React.JS', icon: 'reactjs-square.png', category: 'frontend library', section: 'Frontend', selected: false, details: 'JavaScript library for building user interfaces with component-based architecture.', projects: ['AiChat', 'Proedu', 'Portfolio Ani'] },
+  { id: 'react', name: 'React.JS', icon: 'reactjs-square.png', category: 'frontend library', section: 'Frontend', selected: false, details: 'JavaScript library for building user interfaces with component-based architecture.', projects: ['AiChat', 'Proedu', 'Portfolio Ani', 'Vacansearch'] },
   { id: 'zustand', name: 'Zustand', icon: 'zustand.jpeg', category: 'state management', section: 'Frontend', selected: false, details: 'Lightweight state management solution for React applications with minimal boilerplate.', projects: ['AiChat', 'Sumaplafon'] },
   { id: 'tanstack', name: 'Tanstack', icon: 'tanstack.png', category: 'data fetching', section: 'Frontend', selected: false, details: 'Powerful data synchronization library for fetching, caching, and updating server state.', projects: [] },
   { id: 'postgres', name: 'PostgreSQL', icon: 'postgresql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Advanced open-source relational database with robust features and SQL compliance.', projects: ['Personaize', 'Lemiles'] },
   { id: 'mysql', name: 'MySQL', icon: 'mysql.png', category: 'relational database', section: 'Backend', selected: false, details: 'Popular open-source relational database management system for web applications.', projects: ['Energy Logistics', 'Proedu', 'Izistay', 'Sumaplafon'] },
   { id: 'drizzle', name: 'Drizzle', icon: 'drizzle.png', category: 'ORM', section: 'Backend', selected: false, details: 'TypeScript ORM with type-safe database queries and excellent developer experience.', projects: ['Lemiles'] },
-  { id: 'docker', name: 'Docker', icon: 'docker.webp', category: 'containerization', section: 'Other Service', selected: false, details: 'Platform for developing, shipping, and running applications using containerization technology.', projects: ['Personaize', 'Sumaplafon', 'Lemiles'] },
+  { id: 'docker', name: 'Docker', icon: 'docker.webp', category: 'containerization', section: 'Other Service', selected: false, details: 'Platform for developing, shipping, and running applications using containerization technology.', projects: ['Personaize', 'Sumaplafon', 'Lemiles', 'Vacansearch'] },
   { id: 'nest', name: 'Nest.JS', icon: 'nestjs.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Progressive Node.js framework for building scalable server-side applications with TypeScript.', projects: [] },
   { id: 'expo', name: 'React Expo', icon: 'expo.png', category: 'mobile framework', section: 'Frontend', selected: false, details: 'React Native Framework to create mobile app using React. very helpful since it also provide development build app and other usefull function like OTA update and EAS', projects: ['AiChat', 'Proedu'] },
   { id: 'tailwind', name: 'Tailwind CSS', icon: 'tailwind.png', category: 'CSS framework', section: 'Frontend', selected: false, details: 'Utility-first CSS framework for rapidly building custom user interfaces.', projects: ['AiChat', 'Personaize', 'Lemiles', 'Energy Logistics'] },
@@ -29,9 +29,9 @@ export const tools: Tool[] = [
   { id: 'zod', name: 'zod', icon: 'zod.jpeg', category: 'schema validation', section: 'Backend', selected: false, details: 'TypeScript-first schema validation library with static type inference.', projects: [] },
   { id: 'formik', name: 'Formik', icon: 'formik.png', category: 'form library', section: 'Frontend', selected: false, details: 'React library for building forms with validation, error handling, and field management.', projects: ['AiChat'] },
   { id: 'react-hook-form', name: 'React Hook Form', icon: 'react-hook-form.png', category: 'form library', section: 'Frontend', selected: false, details: 'Performant, flexible forms library with easy validation and minimal re-renders.', projects: ['AiChat'] },
-  { id: 'vite', name: 'Vite', icon: 'vite.png', category: 'build tool', section: 'Frontend', selected: false, details: 'Fast build tool and development server with hot module replacement for modern web projects.', projects: ['AiChat'] },
+  { id: 'vite', name: 'Vite', icon: 'vite.png', category: 'build tool', section: 'Frontend', selected: false, details: 'Fast build tool and development server with hot module replacement for modern web projects.', projects: ['AiChat', 'Vacansearch'] },
   { id: 'prisma', name: 'Prisma ORM', icon: 'prisma.webp', category: 'ORM', section: 'Backend', selected: false, details: 'Modern database toolkit with type-safe client and intuitive data modeling.', projects: ['Sumaplafon'] },
-  { id: 'claude', name: 'Claude (Anthropic)', icon: 'claude.svg', category: 'AI model', section: 'AI', selected: false, details: 'Advanced AI assistant by Anthropic for natural language processing and conversation.', projects: ['Personaize'] },
+  { id: 'claude', name: 'Claude (Anthropic)', icon: 'claude.svg', category: 'AI model & coding agent', section: 'AI', selected: false, details: 'Advanced AI assistant by Anthropic. Used via Claude Code as the engineering pair for spec-driven, vibe-engineered development on Vacansearch.', projects: ['Personaize', 'Vacansearch'] },
   { id: 'gemini', name: 'Google Gemini', icon: 'gemini-old.png', category: 'AI model', section: 'AI', selected: false, details: 'Google\'s multimodal AI model for text, image, and code generation tasks.', projects: ['Personaize', 'Energy Logistics', 'Lemiles'] },
   { id: 'deepseek', name: 'Deepseek', icon: 'deepseek.png', category: 'AI model', section: 'AI', selected: false, details: 'Powerful AI model optimized for coding and technical problem-solving tasks.', projects: [] },
   { id: 'vscode', name: 'Visual Studio Code', icon: 'vscode.png', category: 'code editor', section: 'Code Editor', selected: false, details: 'Popular source code editor with rich ecosystem of extensions and integrated terminal.', projects: [] },
@@ -41,17 +41,22 @@ export const tools: Tool[] = [
   { id: 'supabase', name: 'Supabase', icon: 'supabase.jpeg', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Provides a managed PostgreSQL database and other essential backend tools (authentication, serverless functions, etc)', projects: ['Personaize'] },
   { id: 'neondb', name: 'Neon DB', icon: 'neondb.jpeg', category: 'Cloud Database Service (postgresql)', section: 'Backend', selected: false, details: 'Cloud-native, serverless, fully managed PostgreSQL database service', projects: [] },
   { id: 'firebase', name: 'Firebase', icon: 'firebase2.png', category: 'BaaS (Backend as a Service)', section: 'Backend', selected: false, details: 'Set of backend cloud computing services and application development platforms provided by Google', projects: [] },
-  { id: 'github', name: 'Github', icon: 'github.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat', 'Personaize', 'Proedu', 'Izistay', 'Sumaplafon', 'Lemiles', 'Portfolio Ani', 'Energy Logistics'] },
+  { id: 'github', name: 'Github', icon: 'github.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat', 'Personaize', 'Proedu', 'Izistay', 'Sumaplafon', 'Lemiles', 'Portfolio Ani', 'Energy Logistics', 'Vacansearch'] },
   { id: 'gitlab', name: 'Gitlab', icon: 'gitlab.png', category: 'Git', section: 'Other Service', selected: false, details: 'Git platform to store, share, and work together with others to write code', projects: ['AiChat'] },
   { id: 'netlify', name: 'Netlify', icon: 'netlify.webp', category: 'Deployment', section: 'Other Service', selected: false, details: 'Fast Static Web Hosting with Continuous Deployment by Vercel', projects: ['Portfolio Ani'] },
   { id: 'cloudflare', name: 'Cloudflare', icon: 'cloudflare.jpg', category: 'CDN', section: 'Other Service', selected: false, details: 'Cloudflare is a global CDN and DDoS protection service.', projects: ['Personaize'] },
-  { id: 'nginx', name: 'Nginx', icon: 'nginx.webp', category: 'Web Server', section: 'Other Service', selected: false, details: 'High-performance web server and reverse proxy server.', projects: ['Personaize', 'Sumaplafon'] },
+  { id: 'nginx', name: 'Nginx', icon: 'nginx.webp', category: 'Web Server', section: 'Other Service', selected: false, details: 'High-performance web server and reverse proxy server.', projects: ['Personaize', 'Sumaplafon', 'Vacansearch'] },
   { id: 'slack', name: 'Slack', icon: 'slack.png', category: 'Team Collaboration', section: 'Other Service', selected: false, details: 'Slack is a communication platform that connects teams and enables them to work together more efficiently.', projects: ['AiChat'] },
   { id: 'clickup', name: 'Clickup', icon: 'clickup.png', category: 'Project Management', section: 'Other Service', selected: false, details: 'All-in-one work management platform that helps teams stay organized and productive.', projects: ['AiChat'] },
   { id: 'ryver', name: 'Ryver', icon: 'ryver.webp', category: 'Team Management', section: 'Other Service', selected: false, details: 'Communication and collaboration platform for teams, similar to Slack.', projects: ['AiChat'] },
   { id: 'openclaw', name: 'Openclaw', icon: 'openclaw.png', category: 'AI', section: 'AI', selected: false, details: 'Personal AI Assistant', projects: [] },
   { id: 'hermes-agent', name: 'Hermes Agent', icon: 'hermes-agent.png', category: 'AI coding agent', section: 'AI', selected: false, details: 'AI-powered coding agent for autonomous software development tasks, code generation, and multi-step engineering workflows.', projects: ['Lemiles'] },
   { id: 'telegram', name: 'Telegram', icon: 'telegram.webp', category: 'Messenger', section: 'Other Service', selected: false, details: 'Messenger platform used to build the Lemiles accountability bot.', projects: ['Lemiles'] },
+  { id: 'hono', name: 'Hono.JS', icon: 'nestjs.png', category: 'backend framework', section: 'Backend', selected: false, details: 'Ultrafast, lightweight web framework for building APIs on Node.js and the edge. Used as the backend API for Vacansearch.', projects: ['Vacansearch'] },
+  { id: 'playwright', name: 'Playwright', icon: 'vscode.png', category: 'E2E testing & automation', section: 'Other Service', selected: false, details: 'Browser automation and end-to-end testing framework. Powers Vacansearch career-page scanning and scraping.', projects: ['Vacansearch'] },
+  { id: 'scraper', name: 'Scraper', icon: 'openclaw.png', category: 'web scraping', section: 'Other Service', selected: false, details: 'Custom scraping pipeline that scans company career pages, job boards, and social media for fresh openings.', projects: ['Vacansearch'] },
+  { id: 'pnpm', name: 'pnpm Monorepo', icon: 'netlify.webp', category: 'package manager / monorepo', section: 'Other Service', selected: false, details: 'Fast, disk-efficient package manager used to manage the Vacansearch pnpm monorepo workspaces.', projects: ['Vacansearch'] },
+  { id: 'vps', name: 'VPS', icon: 'cloudflare.jpg', category: 'hosting / infrastructure', section: 'Other Service', selected: false, details: 'Self-managed Virtual Private Server where apps are deployed and run via Docker — manually, without CI/CD.', projects: ['Vacansearch', 'Personaize', 'Lemiles', 'Sumaplafon'] },
 ];
 
 // Translations
@@ -81,6 +86,14 @@ export const translations: Languages = {
       },
     ],
     contributed: [
+      {
+        name: "Vacansearch",
+        image: 'vacansearch.svg',
+        link: 'https://v2.personaized.com',
+        shortIntro: 'Cold approach job seeking',
+        mainTask: 'Active job search + cold approach companion. Curate target companies, auto-scan their career pages for openings, analyze company fit, and reach out before the applicant pool catches on.',
+        techStack: ["react", "hono", "playwright", "claude"],
+      },
       {
         name: "Personaized",
         image: 'personaized.png',
@@ -198,6 +211,12 @@ export const translations: Languages = {
     ],
 
     contributed: [
+      {
+        name: "Vacansearch",
+        image: 'vacansearch.svg',
+        link: 'https://v2.personaized.com',
+        shortIntro: 'Cold approach job seeking'
+      },
       {
         name: "Personaized",
         image: 'personaized.png',

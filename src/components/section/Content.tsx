@@ -50,6 +50,34 @@ const Content = () => {
     const isEN = language === 'EN';
     return [
       {
+        id: 10,
+        title: isEN ? "Cold-Approach Job Hunter" : "Pemburu Kerja Cold-Approach",
+        company: "Vacansearch",
+        type: "Portfolio",
+        location: "Remote",
+        duration: "Personal",
+        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)"],
+        link: "https://v2.personaized.com",
+        date: "May 2026 - Current",
+        features: isEN ? [
+          "Vibe engineering: defined the product specs with Claude, supervised Claude Code's implementation, and deployed to my own VPS manually (no CI/CD)",
+          "Built an active-search + cold-approach companion — curate target companies first, then auto-scan their career pages for openings instead of scraping job boards",
+          "When a company has openings users apply directly; when it doesn't, they can still cold-email — backed by a company analysis that briefs the profile and the problems worth solving",
+          "Added classic active job search that scrapes job boards, social media, and company pages using a targeted role keyword",
+          "Architected as a pnpm monorepo — React + Vite frontend and a Hono.js API — with Playwright-powered scraping",
+          "Containerized with Docker and served behind Nginx on a personal VPS",
+        ] : [
+          "Vibe engineering: mendefinisikan spesifikasi produk bersama Claude, mengawasi implementasi Claude Code, dan deploy manual ke VPS pribadi (tanpa CI/CD)",
+          "Membangun pendamping active-search + cold-approach — kurasi perusahaan target dulu, lalu pindai otomatis halaman karier mereka alih-alih scraping job board",
+          "Jika perusahaan punya lowongan, pengguna melamar langsung; jika tidak, pengguna tetap bisa cold-email — didukung analisis perusahaan yang menjelaskan profil dan masalah yang layak diselesaikan",
+          "Menambahkan pencarian kerja aktif klasik yang men-scrape job board, media sosial, dan halaman perusahaan dengan kata kunci posisi target",
+          "Arsitektur pnpm monorepo — frontend React + Vite dan API Hono.js — dengan scraping bertenaga Playwright",
+          "Containerize dengan Docker dan disajikan di belakang Nginx pada VPS pribadi",
+        ],
+        techStack: ["react", "vite", "hono", "playwright", "scraper", "pnpm", "docker", "nginx", "vps", "github", "claude"],
+        roles: [Role.FullstackDeveloper],
+      },
+      {
         id: 2,
         title: isEN ? "Logistic Management" : "Management Logistik",
         company: "PT Energy Logistics",
@@ -301,9 +329,9 @@ const Content = () => {
         {/* Projects Header */}
         <div className="space-y-4">
           <section className='flex gap-2 items-start relative'>
-            <BriefcaseBusiness className='z-1' />
-            <div>
-              <h2 className="text-md font-bold text-gray-900 z-2">{t.projects}</h2>
+            <BriefcaseBusiness className='relative z-10' />
+            <div className='relative z-10'>
+              <h2 className="text-md font-bold text-gray-900">{t.projects}</h2>
 
               {/* Filter Checkboxes */}
               <section>
@@ -371,7 +399,7 @@ const Content = () => {
                 {shouldShowSection('companyRoles') && (
                   <div className="space-y-2">
                     <div className="flex items-start justify-between relative">
-                      <div className="space-y-1 flex-1">
+                      <div className="space-y-1 flex-1 pt-5 md:pt-0">
                         <h3 className="text-md font-semibold text-gray-900">{project.title}</h3>
                         <div className="flex items-center justify-start space-x-1 flex-wrap text-xs text-gray-500">
                           <p className="text-xs font-medium text-gray-500">{project.company} - </p>
@@ -406,10 +434,10 @@ const Content = () => {
                 {/* Task & Responsibility Section */}
                 {shouldShowSection('taskResponsibility') && project.features && (
                   <div className="space-y-4">
-                    <section className='flex gap-2 items-center'>
+                    <section className='flex flex-wrap gap-2 items-center'>
                       {project.roles.map((role, idx) => {
                         return (
-                          <span key={idx} className={`inline-flex items-center space-x-1 text-xs px-2 py-1 rounded-sm 
+                          <span key={idx} className={`inline-flex items-center space-x-1 text-xs px-2 py-1 rounded-sm whitespace-nowrap
                             ${role === Role.FrontendWebDeveloper ? 'bg-sky-50 text-sky-700' : ''}
                             ${role === Role.MobileDeveloper ? 'bg-lime-50 text-lime-700' : ''}
                             ${role === Role.FullstackDeveloper ? 'bg-rose-50 text-rose-700' : ''}
