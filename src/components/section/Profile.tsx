@@ -508,8 +508,9 @@ const Profile = () => {
         <div className="flex flex-col gap-4 w-full">
           {/* Row: Avatar + Identity */}
           <div className="flex flex-col md:flex-row gap-3 items-start">
-            <div className="hidden md:block w-16 h-16 aspect-square overflow-hidden rounded-full flex-shrink-0">
+            <div className="hidden md:block relative w-16 h-16 aspect-square overflow-hidden rounded-full flex-shrink-0">
               <Image src="/avatar.jpg" alt="Profile Picture" width={64} height={64} className='object-cover w-full h-full' />
+              <div className='pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle,transparent_35%,#f9fafb_95%)]' />
             </div>
             <div className="flex-1 min-w-0">
               <p className="font-semibold text-gray-900 text-sm leading-tight">{t.name}</p>

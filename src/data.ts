@@ -91,7 +91,7 @@ export const content: ContentLabels = {
       link: 'https://vacansearch.com',
       shortIntro: 'Crawl & Scrape Google Data',
       mainTask: 'Active job search + cold approach companion. Curate target companies, auto-scan their career pages for openings, analyze company fit, and reach out before the applicant pool catches on.',
-      buildingCaption: 'Use Google to find companies matching my preferences — small-to-mid tech teams, product companies, remote-friendly — and then crawl into their websites to check for open positions.',
+      buildingCaption: 'Job openings are scarce and my application tracker was a mess of spreadsheets. So I built a scraping flow that crawls Google for small-to-mid, remote-friendly tech companies, checks their career pages for open roles, then opens the door with a cold DM before the applicant pool catches on.',
       techStack: ["react", "hono", "playwright", "claude"],
       problem: "I can't find potential job or business to offer my service.",
     },
@@ -110,7 +110,7 @@ export const content: ContentLabels = {
       link: 'https://lemiles.com',
       shortIntro: '100-Day Challenge Buddy Telegram',
       mainTask: 'First AI-native project as sole engineer. Built a Telegram bot powered by Hermes agent framework + Gemini 2.0 Flash where users set a 100-day challenge and receive daily check-ins from a buddy that feels human — with intent detection, missed-day nudges, streak tracking, Google Sheets sync, and a web dashboard.',
-      buildingCaption: 'Set a 100-day challenge on Telegram and get daily check-ins from an AI buddy that feels human — it detects missed days, nudges you back on track, and keeps your streak synced to a web dashboard.',
+      buildingCaption: 'Set a 100-day challenge on Telegram and get daily check-ins from an AI buddy that feels human. It helps you keep your streak synced to a web dashboard.',
       techStack: ["next", "hermes-agent", "gemini", "telegram"],
     },
     {
