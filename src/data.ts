@@ -87,7 +87,7 @@ export const content: ContentLabels = {
     {
       name: "Vacansearch",
       image: 'vacansearch.svg',
-      showcase: 'vacans.png',
+      showcase: 'vacans.webp',
       link: 'https://vacansearch.com',
       shortIntro: 'Crawl & Scrape Google Data',
       mainTask: 'Active job search + cold approach companion. Curate target companies, auto-scan their career pages for openings, analyze company fit, and reach out before the applicant pool catches on.',
@@ -106,7 +106,7 @@ export const content: ContentLabels = {
     {
       name: "Lemiles",
       image: 'lemiles-logo.png',
-      showcase: 'lemiles-port.png',
+      showcase: 'lemiles-port.webp',
       link: 'https://lemiles.com',
       shortIntro: '100-Day Challenge Buddy Telegram',
       mainTask: 'First AI-native project as sole engineer. Built a Telegram bot powered by Hermes agent framework + Gemini 2.0 Flash where users set a 100-day challenge and receive daily check-ins from a buddy that feels human — with intent detection, missed-day nudges, streak tracking, Google Sheets sync, and a web dashboard.',
@@ -117,7 +117,7 @@ export const content: ContentLabels = {
       name: "Energy Logistics",
       image: 'enlog-logo.png',
       link: 'https://www.energy-logistics.co.id',
-      showcase: 'enlog-port.png',
+      showcase: 'enlog-port.webp',
       shortIntro: 'Logistic solution for B2B',
       mainTask: 'Built a management system that preserves company documents in one place, making the whole process easy to manage, retrieve, and analyze as the business grows.',
       buildingCaption: 'Centralize every company document into one dashboard — replacing scattered spreadsheets and folders — so records stay easy to retrieve and analyze as the business grows.',
