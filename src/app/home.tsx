@@ -4,16 +4,13 @@ import React, { useState, useEffect } from 'react';
 import { 
   MapPin,
 } from 'lucide-react';
-import { LanguageLabel, ProjectFilter, Tool, Languages, IRootContext } from '@/types';
-import { translations } from '@/data';
+import { ProjectFilter, Tool, IRootContext } from '@/types';
+import { content } from '@/data';
 import { RootContext } from '@/contexts/RootContext';
-import Navbar from '@/components/section/Navbar';
-import Sidebar from '@/components/section/Sidebar';
+import Profile from '@/components/section/Profile';
 import Content from '@/components/section/Content';
 
 const Portfolio = () => {
-  const [language, setLanguage] = useState<keyof Languages>('EN');
-  const [viewMode, setViewMode] = useState('Mobile');
   const [selectedTools, setSelectedTools] = useState<string[]>([]);
   const [projectFilters, setProjectFilters] = useState<ProjectFilter>({
     all: true,
@@ -61,8 +58,6 @@ const Portfolio = () => {
       const isMobileDevice = isMobile || (hasTouch && smallScreen && !isTablet);
       
       setIsMobile(isMobileDevice);
-      setViewMode('Mobile');
-      // setViewMode(isMobileDevice ? 'Mobile' : 'Compact');
     };
 
     detectDevice();
@@ -70,45 +65,27 @@ const Portfolio = () => {
     return () => window.removeEventListener('resize', detectDevice);
   }, []);
 
-  const t:LanguageLabel = translations[language];
-
-
   return (
     <RootContext.Provider value={{
-      language, 
-      viewMode,
       selectedTools,
       projectFilters,
       activeTab,
       isMobile,
-      t,
-      setLanguage,
-      setViewMode,
+      t: content,
       setSelectedTools,
       setProjectFilters,
       setActiveTab,
       setIsMobile
     }}>
       <div className="min-h-screen bg-gray-50">
-        {viewMode === 'Compact' && !isMobile ? (
-          <div className="h-screen flex">
-            <div className="w-[530px] border-r border-gray-200">
-              <Sidebar />
+        <div className="min-h-screen flex items-center justify-center overflow-x-hidden">
+          <div className="w-full max-w-2xl shadow-2xl relative pt-14">
+            <div className="bg-white">
+              <Profile />
             </div>
-            <div className="flex-1 relative">
-              <Content />
-            </div>
+            <Content />
           </div>
-        ) : (
-          <div className="min-h-screen flex items-center justify-center overflow-x-hidden">
-            <div className="w-full max-w-2xl shadow-2xl relative pt-14">
-              <div className="bg-white">
-                <Sidebar />
-              </div>
-              <Content />
-            </div>
-          </div>
-        )}
+        </div>
       </div>
     </RootContext.Provider>
   );

@@ -44,61 +44,47 @@ const Content = () => {
     throw new Error('RootContext is not available')
   }
 
-  const { language, t, projectFilters, setProjectFilters, viewMode } = context;
-  // Projects Data with translated content
+  const { t, projectFilters, setProjectFilters } = context;
+  // Projects Data
   const getProjects = () => {
-    const isEN = language === 'EN';
     return [
       {
         id: 10,
-        title: isEN ? "Cold-Approach Job Hunter" : "Pemburu Kerja Cold-Approach",
+        title: "Cold-Approach Job Hunter",
         company: "Vacansearch",
         type: "Portfolio",
         location: "Remote",
         duration: "Personal",
-        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)"],
-        link: "https://v2.personaized.com",
+        badges: ["Official Link (Active)"],
+        link: "https://vacansearch.com",
         date: "May 2026 - Current",
-        features: isEN ? [
+        features: [
           "Vibe engineering: defined the product specs with Claude, supervised Claude Code's implementation, and deployed to my own VPS manually (no CI/CD)",
           "Built an active-search + cold-approach companion — curate target companies first, then auto-scan their career pages for openings instead of scraping job boards",
           "When a company has openings users apply directly; when it doesn't, they can still cold-email — backed by a company analysis that briefs the profile and the problems worth solving",
           "Added classic active job search that scrapes job boards, social media, and company pages using a targeted role keyword",
           "Architected as a pnpm monorepo — React + Vite frontend and a Hono.js API — with Playwright-powered scraping",
           "Containerized with Docker and served behind Nginx on a personal VPS",
-        ] : [
-          "Vibe engineering: mendefinisikan spesifikasi produk bersama Claude, mengawasi implementasi Claude Code, dan deploy manual ke VPS pribadi (tanpa CI/CD)",
-          "Membangun pendamping active-search + cold-approach — kurasi perusahaan target dulu, lalu pindai otomatis halaman karier mereka alih-alih scraping job board",
-          "Jika perusahaan punya lowongan, pengguna melamar langsung; jika tidak, pengguna tetap bisa cold-email — didukung analisis perusahaan yang menjelaskan profil dan masalah yang layak diselesaikan",
-          "Menambahkan pencarian kerja aktif klasik yang men-scrape job board, media sosial, dan halaman perusahaan dengan kata kunci posisi target",
-          "Arsitektur pnpm monorepo — frontend React + Vite dan API Hono.js — dengan scraping bertenaga Playwright",
-          "Containerize dengan Docker dan disajikan di belakang Nginx pada VPS pribadi",
         ],
         techStack: ["react", "vite", "hono", "playwright", "scraper", "pnpm", "docker", "nginx", "vps", "github", "claude"],
         roles: [Role.FullstackDeveloper],
       },
       {
         id: 2,
-        title: isEN ? "Logistic Management" : "Management Logistik",
+        title: "Logistic Management",
         company: "PT Energy Logistics",
-        duration: isEN ? "Contract employee for 6 month (June - December 2025)" : "Karyawan Kontrak selama 6 bulan (Juni - Desember 2025)",
-        location: isEN ? "South Jakarta" : "Jakarta Selatan",
+        duration: "Contract employee for 6 month (June - December 2025)",
+        location: "South Jakarta",
         date: "Jun 2025 - Current",
-        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
+        badges: ["Official Link (Active)", "Tribute"],
         link: "https://energy-logistics.co.id/",
         type: "Portfolio",
-        features: isEN ? [
+        features: [
           "Participate in migration from PHP 5 Native into CodeIgniter 3 with jQuery and Bootstrap",
           "Initiate gradual migration by injecting Alpine JS and tailwindcss along with Codeigniter 3",
           "Advising and planning future proof migration by using Next.JS, PostgreSQL, Nest.JS, including database normalization and migration from MySQL",
           "Redesign UI to be more readable, and easy to use for user",
           "Handling feature development, improvement, and bug fixing",
-        ] : [
-          "Berpartisipasi dalam migrasi dari PHP 5 Native ke CodeIgniter 3 dengan jQuery dan Bootstrap",
-          "Menginisiasi migrasi bertahap dengan menggunakan Alpine JS and tailwindcss dalam Codeigniter 3",
-          "Menyarankan dan merencanakan migrasi future proof dengan menggunakan Next.JS, PostgreSQL, Nest.JS, termasuk normalisasi database dan migrasi dari MySQL",
-          "Mendesain ulang UI agar lebih mudah dibaca dan digunakan oleh pengguna",
-          "Menghandle pengembangan dan peningkatan performa fitur, dan memperbaikin bug",
         ],
         techStack: ["ci", "jquery", "mysql", "js", "bootstrap", "tailwind", "alpine", "gemini", "github"],
         tracking: "shipment-tracking.png",
@@ -109,25 +95,19 @@ const Content = () => {
         id: 1,
         title: "AI Chatbot (CXM)",
         company: "AiChat Pte Ltd (PT Aichat Teknologi Indonesia).",
-        duration: isEN ? "Fulltime Employee for 3 years (2022 - 2025)" : "Karyawan Tetap selama 3 tahun (2022 - 2025)",
+        duration: "Fulltime Employee for 3 years (2022 - 2025)",
         type: "Portfolio",
-        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)", "Tribute"],
+        badges: ["Official Link (Active)", "Tribute"],
         link: "https://www.aichat.com/",
         remote: true,
         location: "Remote",
         date: "Jan 2022 - Apr 2025",
-        features: isEN ? [
+        features: [
           "Develop new Aichat and Client Specific Feature on website CMS v1.0 using React.JS and Laravel, CMS v2.0 using Next.JS, mobile app using React Native, and webchat widget using Native Javascript and web socket",
           "Developed new UI features to seamlessly integrate chatbots with various platforms (e.g., Instagram, Google), significantly reducing user effort and increasing operational efficiency on the AiChat platform",
           "Brainstorming, Discuss, and Coordinating with Product Manager and Backend Developer in order to deliver robust feature",
           "Provided technical explanations to Account Managers, leading to successful client feature adoption/satisfaction",
           "Tracking, Monitoring, and Fixing issue on mobile app, CMS, and web widget"
-        ] : [
-          "Mengembangkan fitur baru Aichat dan Klien Spesifik pada website CMS v1.0 menggunakan React.JS dan Laravel, CMS v2.0 menggunakan Next.JS, aplikasi mobile menggunakan React Native, dan widget webchat menggunakan Native Javascript dan web socket",
-          "Mengembangkan fitur UI baru untuk mengintegrasikan chatbot dengan berbagai platform (mis., Instagram, Google), secara signifikan mengurangi upaya pengguna dan meningkatkan efisiensi operasional pada platform AiChat",
-          "Brainstorming, Diskusi, dan Koordinasi dengan Product Manager dan Backend Developer untuk menghasilkan fitur yang robust",
-          "Memberikan penjelasan teknis kepada Account Manager, yang menghasilkan adopsi/kepuasan fitur klien yang sukses",
-          "Melacak, Memantau, dan Memperbaiki masalah pada aplikasi mobile, CMS, dan widget web"
         ],
         techStack: ["next", "react", "vite", "expo", "js", "ts", "zustand", "formik", "react-hook-form", "socketio", "tailwind", "laravel", "bootstrap", "github", "gitlab", "slack", "clickup", "ryver"],
         images: ["aichat.png", "aichat2.png"],
@@ -135,28 +115,21 @@ const Content = () => {
       },
       {
         id: 9,
-        title: isEN ? "AI Challenge Buddy" : "AI Accountability Buddy (Bot Telegram)",
+        title: "AI Challenge Buddy",
         company: "Lemiles",
         type: "Portfolio",
         location: "Remote",
         duration: "Personal",
-        badges: [isEN ? "Official Link (Active)" : "Link Resmi (Aktif)"],
+        badges: ["Official Link (Active)"],
         link: "https://lemiles.com",
         date: "Apr 2025 - Current",
-        features: isEN ? [
+        features: [
           "First AI-native project — acted as sole engineer designing and shipping the full product",
           "Built a Telegram bot using the Hermes agent framework + Gemini 2.0 Flash with natural language intent detection (confirm / plan / undo / story)",
           "Implemented missed-day detection with tiered empathetic responses (1 day → gentle nudge, 7+ days → soft intervention)",
           "Built web dashboard with streak tracking, GitHub-style heatmap, and activity feed using Next.js 15 App Router",
           "Automated Google Sheets sync per user via service account — auto-created, styled, and shared read-only on registration",
           "Designed full data model and deployed on VPS with PostgreSQL, Drizzle ORM, and Auth.js v5"
-        ] : [
-          "Proyek AI-native pertama — berperan sebagai engineer tunggal yang merancang dan mengirimkan produk secara penuh",
-          "Membangun Telegram bot menggunakan Hermes agent framework + Gemini 2.0 Flash dengan deteksi intent bahasa alami",
-          "Mengimplementasikan deteksi hari yang terlewat dengan respons empatik bertingkat",
-          "Membangun web dashboard dengan pelacakan streak, heatmap gaya GitHub, dan activity feed menggunakan Next.js 15",
-          "Otomatisasi sinkronisasi Google Sheets per pengguna via service account",
-          "Merancang data model lengkap dan deploy di VPS dengan PostgreSQL, Drizzle ORM, dan Auth.js v5"
         ],
         techStack: ["next", "ts", "tailwind", "hermes-agent", "gemini", "telegram", "postgres", "drizzle", "docker", "github"],
         images: ["lemiles.png", "lemiles2.png"],
@@ -168,16 +141,13 @@ const Content = () => {
         company: "Personaized",
         type: "Portfolio",
         location: "Remote",
-        badges: [isEN ? "Official Link" : "Tautan"],
+        badges: ["Official Link"],
         link: "https://personaized.com/",
         duration: "Personal",
         date: "May 2025 - Current",
-        features: isEN ? [
+        features: [
           "Research and analysis of the problems to genreate a solution",
           "Designing system, architecture, and development the whole project",
-        ] : [
-          "Riset dan analisis masalah untuk menghasilkan solusi",
-          "Desain sistem, arsitektur, dan mengembangkan seluruh proyek"
         ],
         techStack: ["next", "ts", "tailwind", "qoder", "claude", "gemini", "postgres", "supabase", "github", "docker", "cloudflare", "nginx"],
         images: ["personaized.png", "personaized2.png"],
@@ -187,17 +157,12 @@ const Content = () => {
         id: 3,
         title: "LMS for Teacher",
         company: "Proedu (PT Alhasan Prima Edukasi)",
-        duration: isEN ? "Fulltime Employee for 1 years (2020 - 2021)" : "Karyawan Tetap selama 1 tahun (2020 - 2021)",
-        location: isEN ? "Bintaro, South Jakarta" : "Bintaro, Jakarta Selatan",
+        duration: "Fulltime Employee for 1 years (2020 - 2021)",
+        location: "Bintaro, South Jakarta",
         date: "Aug 2020 - Dec 2021",
         type: "Portfolio",
-        badges: [isEN ? "Official (Inactive)" : "Resmi (Tidak Aktif)", "Tribute"],
-        features: isEN ? [
-          "Develop new feature and slicing UI/UX using React JS and Codeigniter",
-          "Led the development of the initial React Native mobile app release within a 2 month timeline",
-          "Coordinating with Backend to integrate REST API and UI/UX to develop new feature",
-          "Participate in brainstorming with stakeholder to determine what feature or issue they want to add to platform"
-        ] : [
+        badges: ["Official (Inactive)", "Tribute"],
+        features: [
           "Develop new feature and slicing UI/UX using React JS and Codeigniter",
           "Led the development of the initial React Native mobile app release within a 2 month timeline",
           "Coordinating with Backend to integrate REST API and UI/UX to develop new feature",
@@ -211,16 +176,12 @@ const Content = () => {
         id: 4,
         title: "Property Rent",
         company: "Izislay (PT Mega Kreasi Digital)",
-        duration: isEN ? "Fulltime Employee for 1 years (2020 - 2021)" : "Karyawan Tetap selama 1 tahun (2020 - 2021)",
-        location: isEN ? "Bintaro, South Jakarta" : "Bintaro, Jakarta Selatan",
+        duration: "Fulltime Employee for 1 years (2020 - 2021)",
+        location: "Bintaro, South Jakarta",
         date: "Aug 2018 - Jul 2020",
-        badges: [isEN ? "Official (Inactive)" : "Resmi (Tidak Aktif)", "Tribute"],
+        badges: ["Official (Inactive)", "Tribute"],
         type: "Portfolio",
-        features: isEN ? [
-          "Implemented UI/UX design using bootstrap",
-          "Develop new feature using Codeigniter, JQuery, AJAX, and other tech stack  in supervision by Tech Lead",
-          "Contributed to design discussion for feature flows, ensuring alignment with overall project objectives",
-        ] : [
+        features: [
           "Implemented UI/UX design using bootstrap",
           "Develop new feature using Codeigniter, JQuery, AJAX, and other tech stack  in supervision by Tech Lead",
           "Contributed to design discussion for feature flows, ensuring alignment with overall project objectives",
@@ -231,17 +192,14 @@ const Content = () => {
       },
       {
         id: 5,
-        title: isEN ? "Product Catalog (V2)" : "Katalog Produk (V2)",
+        title: "Product Catalog (V2)",
         company: "Sumaplafon",
         type: "Portfolio",
         location: "Remote",
-        badges: [isEN ? "Official (Active)" : "Resmi (Aktif)", "Tribute"],
+        badges: ["Official (Active)", "Tribute"],
         duration: "Freelance",
         date: "Dec 2024 - Mar 2025",
-        features: isEN ? [
-          "Develop the feature using Next JS, Prisma ORM, and PostgreSQL. then Deploy the app into VPS using Docker",
-          "Communicate with client about feature, requirement, and development process ",
-        ] : [
+        features: [
           "Develop the feature using Next JS, Prisma ORM, and PostgreSQL. then Deploy the app into VPS using Docker",
           "Communicate with client about feature, requirement, and development process ",
         ],
@@ -251,17 +209,14 @@ const Content = () => {
       },
       {
         id: 6,
-        title: isEN ? "Product Catalog" : "Katalog Produk",
+        title: "Product Catalog",
         company: "Sumaplafon",
         type: "Portfolio",
         location: "Remote",
-        badges: [isEN ? "Official (Inactive)" : "Resmi (Tidak Aktif)"],
+        badges: ["Official (Inactive)"],
         duration: "Freelance",
         date: "Feb 2020 - May 2020",
-        features: isEN ? [
-          "Design wireframe, database, and decide tech stack to be used in the system using Laravel and Boostrap",
-          "Maintain, Fixing, and Checking issues "
-        ] : [
+        features: [
           "Design wireframe, database, and decide tech stack to be used in the system using Laravel and Boostrap",
           "Maintain, Fixing, and Checking issues "
         ],
@@ -271,20 +226,17 @@ const Content = () => {
       },
       {
         id: 8,
-        title: isEN ? "Portfolio Website" : "Website Portofolio",
+        title: "Portfolio Website",
         company: "[Personal Client]",
         type: "Portfolio",
         location: "Remote",
         duration: "Freelance",
-        badges: [isEN ? "Official Link" : "Resmi (Tidak Aktif)"],
+        badges: ["Official Link"],
         link: "https://nrharyani.com/",
         date: "Oct 2024 - Nov 2024",
-        features: isEN ? [
+        features: [
           "Develop the website using React.js",
           "Deploy the website using Vercel Netlify"
-        ] : [
-          "Mengembangkan website menggunakan React.js",
-          "Meng-deploy website menggunakan Vercel Netlify"
         ],
         techStack: ["react", "github", "netlify"],
         images: ["ani.png", "ani2.png"],
@@ -325,7 +277,7 @@ const Content = () => {
   return (
     <div className="h-full overflow-y-auto bg-gray-50 relative ">
       <Navbar />
-      <div className="p-6 space-y-6">
+      <div className="hidden p-6 space-y-6">
         {/* Projects Header */}
         <div className="space-y-4">
           <section className='flex gap-2 items-start relative'>
@@ -376,7 +328,7 @@ const Content = () => {
         </div>
 
         {/* Projects Grid - 2 columns */}
-        <div className={`grid grid-cols-1 ${viewMode === 'Compact' ? 'xl:grid-cols-2' : ''} gap-6`}>
+        <div className="grid grid-cols-1 gap-6">
           {getProjects().map(project => (
             <div key={project.id} className="relative bg-white rounded-lg border border-gray-200 p-6 hover:shadow-lg transition-shadow">
               {project.duration === "Freelance" && (

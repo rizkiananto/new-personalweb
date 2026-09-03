@@ -207,3 +207,21 @@
 .hljs-strong {
   font-weight: bold;
 }
+
+@keyframes marquee-scroll {
+  0%, 12% {
+    transform: translateX(0);
+  }
+  45%, 58% {
+    transform: translateX(calc(-1 * var(--marquee-distance, 0px)));
+  }
+  92%, 100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation-name: marquee-scroll;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}

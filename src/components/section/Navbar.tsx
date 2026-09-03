@@ -1,11 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Download, MapPin, Moon } from 'lucide-react';
 import { RootContext } from '@/contexts/RootContext';
 import { Roboto_Slab } from 'next/font/google';
-import { motion, AnimatePresence } from 'framer-motion';
-import SwitcherDemo from '../ui/switcher-custom';
+import ContactDialog from '@/components/ui/contact-dialog';
 
 const roboto = Roboto_Slab({
   subsets: ['latin'], // Or other desired subsets
@@ -19,10 +18,11 @@ const Navbar = () => {
     throw new Error('Navbar must be used within a RootContext Provider');
   }
 
-  const { language, setLanguage, viewMode, setViewMode, isMobile, t } = context;
+  const { t } = context;
+  const [contactOpen, setContactOpen] = useState(false);
 
   return (
-    <div className={`${viewMode === 'Mobile' ? 'fixed max-w-2xl left-1/2 top-0 -translate-x-1/2' : 'sticky top-0 left-0'} w-full z-50 bg-gray-300/10 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10`}>
+    <div className="fixed max-w-2xl left-1/2 top-0 -translate-x-1/2 w-full z-50 bg-gray-300/10 bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-10">
       <div className={`px-6`}>
         <div className="flex items-center justify-between h-14">
           <div className="flex items-center space-x-6 font-semibold">
@@ -36,74 +36,30 @@ const Navbar = () => {
                 <span>{t.downloadCV}</span>
               </button>
             </a>
-            <a href="https://id.linkedin.com/in/akbarrizki" target='_blank'>
-              <button className="text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
-                {t.contactMe}
-              </button>
-            </a>
+            <button
+              type='button'
+              onClick={() => setContactOpen(true)}
+              className="text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              {t.contactMe}
+            </button>
             <a href="https://blog.rizkiananto.com" target='_blank'>
-              <button className="text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
+              <button className="flex items-center text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
                 Blog
               </button>
             </a>
           </div>
 
           <div className="flex items-center space-x-4">
-            {/* View Mode Toggle */}
-            {!isMobile && (
-              <div className='hidden'>
-                <SwitcherDemo
-                  onClick={() => setViewMode(viewMode === 'Compact' ? 'Mobile' : 'Compact')}
-                  value={viewMode !== 'Compact'}
-                />
-              </div>
-            )}
-
             <div className="hidden md:flex items-center gap-1 mt-0.5">
               <MapPin className="w-3 h-3 flex-shrink-0" />
               🇮🇩
               <span className='text-xs truncate'>{t.location}</span>
             </div>
-            {/* Language Switcher */}
-            <button
-              onClick={() => setLanguage(language === 'EN' ? 'ID' : 'EN')}
-              className="flex hidden items-center space-x-2 text-sm text-gray-700 hover:text-gray-900"
-            >
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={`flag-${language}`}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.4, 0, 0.2, 1]
-                  }}
-                  className="text-lg"
-                >
-                  <span className="font-medium">{language === 'ID' ? "🇮🇩" : "🇺🇸"}</span>
-                </motion.span>
-              </AnimatePresence>
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={`code-${language}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{
-                    duration: 0.3,
-                    ease: [0.4, 0, 0.2, 1],
-                    delay: 0.1
-                  }}
-                  className="font-medium text-gray-700 text-xs whitespace-nowrap"
-                >
-                  <span className="font-medium">{language}</span>
-                </motion.span>
-              </AnimatePresence>
-            </button>
           </div>
         </div>
       </div>
+      <ContactDialog open={contactOpen} onOpenChange={setContactOpen} />
     </div>
   );
 };

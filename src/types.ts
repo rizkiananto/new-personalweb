@@ -9,13 +9,16 @@ export interface Role {
 export interface ContributedProps {
   name: string,
   image: string,
+  showcase?: string,
   link?: string,
   shortIntro?: string,
   mainTask?: string,
+  buildingCaption?: string,
   techStack?: string[],
-  blogLink?: string, 
+  blogLink?: string,
+  problem?: string,
 }
-export interface LanguageLabel {
+export interface ContentLabels {
   myWorks: string
   contactMe: string
   downloadCV: string
@@ -73,11 +76,6 @@ export interface ProjectFilter {
   portfolio: boolean
 }
 
-export interface Languages {
-  EN: LanguageLabel,
-  ID: LanguageLabel
-}
-
 export interface JobMatchResult {
   match_score: number;
   analysis: string;
@@ -103,15 +101,11 @@ export interface JobMatchResponse {
 }
 
 export interface IRootContext {
-  language: keyof Languages;
-  viewMode: string;
   selectedTools: string[];
   projectFilters: ProjectFilter;
   activeTab: string;
   isMobile: boolean;
-  t: LanguageLabel;
-  setLanguage: (language: keyof Languages) => void;
-  setViewMode: (viewMode: string) => void;
+  t: ContentLabels;
   setSelectedTools: React.Dispatch<React.SetStateAction<string[]>>
   setProjectFilters: React.Dispatch<React.SetStateAction<ProjectFilter>>
   setIsMobile: (isMobile: boolean) => void;
