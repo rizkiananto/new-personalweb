@@ -30,7 +30,7 @@ const Navbar = () => {
               {t.myWorks}
             </button> */}
             {/* https://drive.google.com/file/d/1srguRQlY1_lZi3S8gdV0xOtINds7vGxn/view?usp=drive_link */}
-            <a href="https://drive.google.com/uc?export=download&id=1srguRQlY1_lZi3S8gdV0xOtINds7vGxn" target='_blank'>
+            <a href="https://drive.google.com/uc?export=download&id=1PnDeJAsF74xYqtbfwx35b8xJLh_eI-Ae" target='_blank'>
               <button className="flex items-center space-x-2 text-xs font-medium text-gray-600 hover:text-blue-600 transition-colors">
                 <Download className="w-4 h-4" />
                 <span>{t.downloadCV}</span>

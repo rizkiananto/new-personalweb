@@ -175,7 +175,7 @@ const Content = () => {
       {
         id: 4,
         title: "Property Rent",
-        company: "Izislay (PT Mega Kreasi Digital)",
+        company: "Izistay (PT Mega Kreasi Digital)",
         duration: "Fulltime Employee for 1 years (2020 - 2021)",
         location: "Bintaro, South Jakarta",
         date: "Aug 2018 - Jul 2020",

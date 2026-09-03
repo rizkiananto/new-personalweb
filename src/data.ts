@@ -63,7 +63,7 @@ export const content: ContentLabels = {
   myWorks: "My Works",
   contactMe: "Contact Me",
   downloadCV: "Download CV",
-  title: "Not just dev. The whole product, end to end.",
+  title: "Not just dev. The whole product, end to end",
   subtitle: "Open to full-time roles & product collaboration",
   name: "Rizkianto Akbar",
   roles: [

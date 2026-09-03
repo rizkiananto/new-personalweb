@@ -181,8 +181,8 @@ type TimelineBlock =
 function MilestoneCard({ m, badgeSide }: { m: MilestoneEntry; badgeSide: 'left' | 'right' }) {
   const isCurrent = m.yearEnd === 'Current';
   return (
-    <div className={`relative border rounded-lg p-3.5 ${isCurrent ? 'border-blue-200 bg-blue-50/40 ring-1 ring-blue-100' : 'border-gray-200 bg-white'}`}>
-      <span className={`absolute -top-3 ${badgeSide === 'left' ? '-left-3' : '-right-3'} flex items-center justify-center h-6 w-6 rounded-full border ${isCurrent ? 'bg-blue-50 border-blue-300 text-blue-500' : 'bg-gray-50 border-gray-300 text-gray-500'}`}>
+    <div className={`relative border rounded-lg p-3.5 ${isCurrent ? 'border-blue-200 bg-blue-50/40 ring-1 ring-blue-100' : 'border-blue-100 bg-white'}`}>
+      <span className={`absolute -top-3 ${badgeSide === 'left' ? '-left-3' : '-right-3'} flex items-center justify-center h-6 w-6 rounded-full border ${isCurrent ? 'bg-blue-50 border-blue-300 text-blue-500' : 'bg-blue-50/60 border-blue-200 text-blue-400'}`}>
         <BriefcaseBusiness size={11} strokeWidth={2} />
       </span>
       <p className='text-xs font-semibold text-gray-900 leading-tight'>
@@ -465,10 +465,11 @@ const Profile = () => {
     { type: 'fulltime', data: { title: 'AI Chatbot (CXM)', company: 'AiChat Pte Ltd', year: '2022', yearEnd: '2025', date: 'Jan 2022 - Apr 2025', location: 'Remote', brief: '3 years building the CXM platform across web CMS, mobile app, and webchat widget.' } },
     { type: 'fulltime', data: { title: 'LMS for Teacher', company: 'Proedu', year: '2020', yearEnd: '2021', date: 'Aug 2020 - Dec 2021', location: 'Bintaro, South Jakarta', brief: "Led the team's first React Native app release and built LMS features." } },
     { type: 'freelance', data: { title: 'Product Catalog', company: 'Sumaplafon', date: 'Feb 2020 - May 2020', brief: 'Designed the wireframe, database, and tech stack using Laravel and Bootstrap.' } },
-    { type: 'fulltime', data: { title: 'Property Rent', company: 'Izislay', year: '2018', yearEnd: '2020', date: 'Aug 2018 - Jul 2020', location: 'Bintaro, South Jakarta', brief: 'Implemented UI/UX and shipped new features under tech-lead supervision.' } },
+    { type: 'fulltime', data: { title: 'Property Rent', company: 'Izistay', year: '2018', yearEnd: '2020', date: 'Aug 2018 - Jul 2020', location: 'Bintaro, South Jakarta', brief: 'Implemented UI/UX and shipped new features under tech-lead supervision.' } },
   ];
 
   const currentMonthYear = new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+  const yearsOfExperience = new Date().getFullYear() - 2018;
 
   // Only fulltime jobs flip which side of the line a block sits on — a freelance block
   // in between sits in the empty column opposite whichever fulltime chapter it falls under.
@@ -523,7 +524,7 @@ const Profile = () => {
                 ))}
               </div>
               {/* <hr className='my-1.5 border border-dashed border-gray-200 max-w-40' /> */}
-              <p className="text-xs font-medium text-gray-800 mt-3 leading-snug">{t.title}</p>
+              <p className="text-xs font-medium text-gray-800 mt-3 leading-snug">{t.title} · {yearsOfExperience} years experience</p>
               <div className="flex items-center gap-1 mt-1">
                 <div className="relative flex h-2 w-2 items-center justify-center mb-0">
                   <span className="absolute inline-flex h-full w-full animate-[ping_1.5s_cubic-bezier(0,0,0.2,1)_infinite] rounded-full bg-blue-300 opacity-50 [transform:scale(1)]"></span>
@@ -650,7 +651,7 @@ const Profile = () => {
         </div>
 
         {/*<CustomSeparator icon={Infinity} />*/}
-        <div className='flex items-center justify-center gap-3 underline underline-offset-1 mt-16 mb-10'>
+        <div className='flex items-center justify-center gap-3 mt-16 mb-10'>
           <h3 className='font-semibold'>What can I Build for you?</h3>
           <Image
             src='/emoji-puzzled.png'
